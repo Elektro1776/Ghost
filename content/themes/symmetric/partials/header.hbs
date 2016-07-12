@@ -1,0 +1,61 @@
+<!-- start: #header -->
+<header id="header">
+
+	<div class="menu-mobile">
+		<i class="fa fa-bars"></i>
+	</div>
+
+	<!-- start: .top -->
+	<div class="container grid-parent">
+
+		<div class="social hide-on-mobile hide-on-tablet">
+			<i class="open fa fa-share-alt"></i>
+			{{> social-profiles}}
+		</div>
+
+		{{#if @blog.logo}}
+			<h1 class="logo" ><a href="{{@blog.url}}"><img src="assets/images/hcr_ad.png" alt="Heart Centered Rebalancing" /></a></h1>
+		{{else}}
+			<h1 class="logo pull-left">
+				<a href="{{@blog.url}}"><img src="assets/images/hcr_ad.png" alt="" /></a>
+			</h1>
+		{{/if}}
+
+		<!--<form action="" method="get" class="hide-on-mobile">
+			<input type="text" name="s" value="" class="search-field" required>
+			<button type="submit"><i class="fa fa-search"></i></button>
+		</form> -->
+
+	</div>
+	<!-- end: .top -->
+
+	<!--<h2 class="blog-description">{{@blog.description}}</h2>-->
+
+	<!-- start: .menu-wrapper -->
+	<div class=" container">
+		<div class="row">
+		<!-- start: .main-nav -->
+		<nav class="navbar navbar-default" role="navigation" style="background:#fff; border:none;">
+
+			<div class="social hide-on-tablet hide-on-mobile">
+				<i class="open fa fa-share-alt"></i>
+				<!--{{> social-profiles}}-->
+			</div>
+
+			{{navigation}}
+
+		<!--	<form action="" method="get" class="hide-on-tablet hide-on-mobile">
+				<input type="text" name="s" value="" class="search-field" required>
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</form> -->
+
+		</nav>
+		<!-- end: .main-nav -->
+	</div>
+	</div>
+	<!-- end: .menu-wrapper -->
+
+	<div class="clear"></div>
+
+</header>
+<!-- end: #header -->
