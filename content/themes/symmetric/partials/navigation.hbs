@@ -1,5 +1,7 @@
-<ul id="menu-header" class="menu pull-left">
+
+<ul id="menu-header" class="menu nav navbar-nav ">
 	{{#foreach navigation}}
-		<li class="nav-{{slug}}{{#if current}} current-menu-item{{/if}}"><a href="{{url absolute="true"}}">{{label}}</a></li>
+		<li class="nav-{{slug}}{{#if current}} current-menu-item{{/if}}">
+			<a href="{{url absolute="true"}}">{{label}}</a></li>
 	{{/foreach}}
 </ul>

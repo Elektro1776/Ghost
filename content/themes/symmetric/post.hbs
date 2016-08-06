@@ -4,48 +4,74 @@
     the {body} of the default.hbs template, which contains our header/footer. }}
 
 <!-- start: #single -->
-<main id="single" class="main" role="main">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+<main id="single" class="main " role="main">
+
 
 	{{#post}}
+	<!-- start: .meta -->
+	<div class="meta col-lg-12 col-md-12 col-xs-12">
+
+			<h1 class="title" id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
+			<div class="dropdown" style="margin-left: 0px;">
+						<button id="follow-button" class="btn" style="margin-bottom:10px;">Follow</button>
+
+							<ul class="dropdown-menu header-socials" style="border:none; background:none;box-shadow:none; ">
+								<li class="facebook"><a href="http://facebook.com/heartcenteredrebalancing" style="border:none;">
+									<i class="fa fa-facebook"></i></a></li>
+
+								<li class="instagram"><a href="http://instagram.com/heartcenteredrebalancing" style="border:none;">
+									<i class="fa fa-instagram"></i></a></li>
+							</ul>
+			</div>
+			<div class="row">
+
+			{{#if tags}}
+			<div class="tags">
+				{{tags separator=""}}
+			</div>
+			{{/if}}
+			<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+			<a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
+		</div>
+
+
+</div>
+<div class="clear">
+
+</div>
 		{{#if image}}
 			{{^has tag="no cover"}}
-			<!--	<div class="wow fadeIn">
+				<div class="container">
 					<div class="main-image cover" style="background: url({{image}});">
 						<div class="overlay"></div>
 						<div class="center grid-container">
 							<div class="boxed cover" style="background: url({{image}});"></div>
 							<div class="boxed overlay"></div>
-							<div class="info">
-								<! start: .meta -->
-								<div class="meta">
-									<h1 class="title">{{title}}</h1>
-									{{#if tags}}
-										<div class="tags">
-											{{tags separator=""}}
-										</div>
-									{{/if}}
-									<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-									<a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
-								</div>
-								<!-- end: .meta -->
-							</div>
 						</div>
 					</div>
 				</div>
+
 			{{/has}}
 		{{/if}}
+
+
+<div class="clear">
+
+</div>
+<div class="container">
+
 
 		<!-- start: .center -->
 		<div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
 
 				<!-- start: .content -->
-				<div class="container ">
 				<div class="row">
-
 
 					<article class="{{post_class}}">
 
-						<h3 class="title bordered">FULL ARTICLE</h3>
+
 						{{#has tag="no cover"}}
 							<header>
 								<!-- start: .meta -->
@@ -68,140 +94,43 @@
 								</div>
 							</header>
 						{{/has}}
-						<section class="post-content">
-							<div class="text">{{content}}</div>
-						</section>
-
-					</div>
-						<div class="share">
-							<h3 class="title">SHARE THIS!</h3>
-							<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-						onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook"></i> FACEBOOK</a>
-							<a class="twitter" href="http://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}"
-						onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter"></i> TWITTER</a>
-							<a class="googleplus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-					   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus"></i> GOOGLE</a>
-						</div>
-
-					</article>
-
-					{{#author}}
-						<!-- start: .author -->
-						<section class="author {{#if image}} with-avatar{{else}} no-avatar{{/if}} grid-container">
-							<h3 class="title bordered">AUTHOR</h3>
-							<div class="avatar grid-35 tablet-grid-30">
-								{{#if image}}
-									<a href="{{url}}" class="hover-effect"><img src="{{image}}"></a>
-								{{/if}}
-							</div>
-							<div class="right grid-65 tablet-grid-70">
-								<h4 class="title"><a href="{{url}}">{{name}}</a></h4>
-								<p>{{bio}}</p>
-								<div class="social">
-
-									{{#if location}}
-										<a href="javascript:void(0)" class="button location tooltip" title="Location: {{location}}"><i class="fa fa-map-marker"></i> Location</a>
-									{{/if}}
-
-									{{#if website}}
-										<a href="{{website}}" class="button website tooltip" target="_blank" title="Website: {{website}}"><i class="fa fa-external-link"></i> Website</a>
-									{{/if}}
-
+						<section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
+							<section class="widget widget_text col-lg-6 col-md-6 col-sm-8 xs-6">
+								<div id="ad_4" class="">
+									<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
 								</div>
-							</div>
-							<div class="clear"></div>
-						</section>
-						<!-- end: .author -->
-					{{/author}}
+							</section>
+								<div class="row">
+							<div class="text">{{content}}</div>
+						</div>
+					</article>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</section>
+			<div class="row">
+				<div class="container">
 
 					<section class="related grid-container grid-parent">
 						<h3 class="title bordered">RELATED POSTS</h3>
-						{{#prev_post}}
-							<article class="previous grid-50 tablet-grid-50">
-								{{#if image}}
-									<a href="{{url}}" class="thumb cover opacity-effect" style="background: url({{image}});"><span><i class="fa fa-chevron-left"></i> PREVIOUS</span></a>
-								{{/if}}
-								<div class="meta">
-									{{#if tags}}
-										<div class="tags">
-											{{tags separator=""}}
-										</div>
-									{{/if}}
-									<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-								</div>
-								<h4 class="title"><a href="{{url}}">{{title}}</a></h4>
-							</article>
-						{{/prev_post}}
-
-						{{#next_post}}
-							<article class="next grid-50 tablet-grid-50">
-								{{#if image}}
-									<a href="{{url}}" class="thumb cover opacity-effect" style="background: url({{image}});"><span>NEXT <i class="fa fa-chevron-right"></i></span></a>
-								{{/if}}
-								<div class="meta">
-									{{#if tags}}
-										<div class="tags">
-											{{tags separator=""}}
-										</div>
-									{{/if}}
-									<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-								</div>
-								<h4 class="title"><a href="{{url}}">{{title}}</a></h4>
-							</article>
-						{{/next_post}}
+						{{>related_posts}}
 					</section>
-
-
-
-					<!-- start: disqus integration
-					<div id="comments">
-						<h3 class="title bordered">COMMENTS</h3>
-						<div id="disqus_thread"></div>
-					</div>
-
-					<script>
-						/**
-						 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-						 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-						 */
-						var disqus_shortname = theme_config.disqus_shortname; // required: replace example with your forum shortname
-						var disqus_config = function () {
-							this.page.url = '{{@blog.url}}{{url}}';  // Replace PAGE_URL with your page's canonical URL variable
-							this.page.identifier = '{{id}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-						};
-
-						(function() {  // DON'T EDIT BELOW THIS LINE
-							var d = document, s = d.createElement('script');
-
-							s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-							s.setAttribute('data-timestamp', +new Date());
-							(d.head || d.body).appendChild(s);
-						})();
-					</script>
-					<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-					<! end: disqus integration -->
-
-					<!-- start: .pagination -->
-					<div class="pagination">
-
-						<div class="clear"></div>
-					</div>
-					<!-- end: .pagination-->
-
-					<div class="clear"></div>
 				</div>
+				</div>
+			</div>
+
+				<div class="clear"></div>
 				<!-- end: .content -->
 
+			</div>
+
+
+				{{/post}}
 
 			{{>sidebar-featured}}
-			{{>sidebar-default}}
 
-		</div>
 		<!-- end: .center -->
 
-	{{/post}}
 
 </main>
 <!-- end: #single -->

@@ -1,0 +1,36 @@
+{{#get "posts" limit="4" }}
+{{#foreach posts columns="2"}}
+  	<article class=" {{post_class}} {{#if @rowStart}} col-lg-6 col-md-6 col-sm-6 col-xs-6{{/if}} {{#if @rowEnd}} col-md-6 col-xs-6{{/if}}" style=" margin-bottom:10px;">
+      {{#if image}}
+        <a href="{{url}}" class="thumb hover-effect">
+          <img src="{{image}}" style="">
+        </a>
+      {{else}}
+        {{content words="0"}}
+      {{/if}}
+    <h4 class="title"><a href="{{url}}">{{title}}</a></h4>
+    <div class="meta">
+      {{#if tags}}
+      <div class="tags">
+        {{tags separator=""}}
+      </div>
+      {{/if}}
+
+        <div class="fa-fa-circle">
+          <p style="font-size: 14px;line-height: 22px;font-weight: 700;font-style: normal;letter-spacing: 0px;
+    text-transform: none;">
+            Heart Centered Rebalancing
+          </p>
+        </div>
+
+      <time datetime="{{date format="YYYY-MM-DD"}}">
+        <i class="fa fa-clock-o"></i> {{date published_at timeago="true"}}</time>
+    </div>
+    <div class="post-excerpt" style="line-height:22px; color:#282828; font-weight:500;">
+      {{excerpt words="20"}}...
+
+      <div class="clear"></div>
+    </div>
+  </article>
+  {{/foreach}}
+{{/get}}

@@ -5,7 +5,9 @@ Notes: it is highly recommendable to use lighter color than dark ones, if your m
 */
 
 /* @group Main Color default: #FCD665 */
-
+.fa-angle-double-right{
+	color:#db2bcc
+}
 div.tags a, div.tags span,
 section.tweets div.slick,
 .pagination a,
@@ -52,7 +54,7 @@ div.meta a.comments:hover,
 .pagination a, .pagination span, .pagination a:hover, .pagination .current{ color: #000; }
 
 
-#header nav ul.menu > li > a:hover:before, #header nav ul.menu > li.current-menu-item > a:before,
+/*#header nav ul.menu > li > a:hover:before, #header nav ul.menu > li.current-menu-item > a:before,*/
 section.tweets h3,
 .button.dark,
 #single section.related a.thumb span,
@@ -63,6 +65,7 @@ section.widget_tag_cloud a,
 /* Footer styling section */
 #footer{ background: black;}
 #footer div  div > ul > li > a {color:#db2bcc;}
+#footer div #footer-links > li >a {color:#db2bcc}
 /* @end */
 
 /* @group Third Color default: #666 (links rollover, tags rollover, titles, etc)*/

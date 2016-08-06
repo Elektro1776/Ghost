@@ -1,61 +1,105 @@
 <!-- start: #header -->
-<header id="header">
 
-	<div class="menu-mobile">
-		<i class="fa fa-bars"></i>
+<header id="header" style="width:100%;">
+<div class="row">
+
+	<div class="menu-mobile hidden-lg hidden-md visible-sm visible-xs">
+		<i class="fa fa-bars" style="color:black"></i>
 	</div>
 
 	<!-- start: .top -->
-	<div class="container grid-parent">
 
-		<div class="social hide-on-mobile hide-on-tablet">
-			<i class="open fa fa-share-alt"></i>
-			{{> social-profiles}}
+
+		<div class="container-fluid">
+			<div class="row visible-lg visible-md hidden-sm hidden-xs">
+				<div class="col-md-4">
+
+			<a href="{{@blog.url}}">
+				<img src="{{asset "images/hcr_large.png"}}"  style="display:block" alt="Heart Centered Rebalancing" /></a>
+			</div>
+
+					<div id="ad_1" class=" col-lg-8 col-md-8 col-sm-7" style="padding-left:50px;">
+						<img src="{{asset "images/ad_banner728x90.jpg"}}" />
+					</div>
+			</div>
+
+			<div class=" col-xs-2 col-xs-offset-2 hidden-lg hidden-md visible-sm visible-xs" style="padding: 0px 0px 0px;">
+				<div class="mobile-logo ">
+					<a href="{{@blog.url}}">
+						<img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
+				</div>
+			</div>
+			<div class="container hidden-lg hidden-md visible-sm visible-xs ">
+				<div class="mobile-logo-words col-xs-6 col-sm-6 col-lg-6 " style="padding:0px 0px 0px;">
+
+				<a href="{{@blog.url}}">
+					<img src="{{asset "images/hcrlogo-mobile-words.png"}}"  alt="Heart Centered Rebalancing" /></a>
+				</div>
+			</div>
+
+
+
+			<span id="overlay_text" style="position: relative; top: 0px; z-index: 3;">
+				<div id="mobileFollow" style="visibility: hidden; left:70px;" class="col-xs-7  col-sm-6 col-lg-6 showfm">
+					<div class="panel panel-default" style="background:none;box-shadow: 0 0px 0px rgba(0,0,0,.0); border:none;">
+						<div class="panel-heading" role="tab" id="headingTwo" style="background-color:#DB2BCC;background-image:none; border-radius:25px;">
+							<h4 class="panel-title" style="text-align:center;">
+								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									<span style="color:white;">Follow</span>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" style="background-color:transparent;">
+							<div class="container">
+								<div class="row">
+									<div class=" header-socials " style="padding-top:10px">
+										<a class="col-xs-4 col-sm-3" href="http://facebook.com/heartcenteredrebalancing" style="border:none; margin-left:-20px"><i class="fa fa-facebook"></i></a>
+										<a class="col-xs-4 col-sm-3" href="http://youtube.com/heartcenteredrebalancing" style="border:none; left:3px;"><i class="fa fa-youtube"></i></a>
+										<a class="col-xs-1" href="http://instagram.com/heartcenteredrebalancing" style="border:none;left:9px;"><i class="fa fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="companyName" style="visibility: hidden; position: absolute; top: 8px;" class="showfm"><img src="http://heartcenteredrebalancing.com/wp-content/uploads/2016/04/mobileLogo.png"></div>
+				</div>
+			</span>
 		</div>
 
-		{{#if @blog.logo}}
-			<h1 class="logo" ><a href="{{@blog.url}}"><img src="assets/images/hcr_ad.png" alt="Heart Centered Rebalancing" /></a></h1>
-		{{else}}
-			<h1 class="logo pull-left">
-				<a href="{{@blog.url}}"><img src="assets/images/hcr_ad.png" alt="" /></a>
-			</h1>
-		{{/if}}
 
-		<!--<form action="" method="get" class="hide-on-mobile">
-			<input type="text" name="s" value="" class="search-field" required>
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</form> -->
 
-	</div>
+
 	<!-- end: .top -->
 
 	<!--<h2 class="blog-description">{{@blog.description}}</h2>-->
+	<div class="container ">
 
 	<!-- start: .menu-wrapper -->
-	<div class=" container">
-		<div class="row">
+	<div class="menu-wrapper col-lg-12 col-md-12 col-sm-3" style="background-color:#fff;" >
 		<!-- start: .main-nav -->
-		<nav class="navbar navbar-default" role="navigation" style="background:#fff; border:none;">
+		<nav class="main-nav grid-container grid-parent symmetric_nav" role="navigation" >
 
-			<div class="social hide-on-tablet hide-on-mobile">
-				<i class="open fa fa-share-alt"></i>
-				<!--{{> social-profiles}}-->
-			</div>
+
 
 			{{navigation}}
 
-		<!--	<form action="" method="get" class="hide-on-tablet hide-on-mobile">
-				<input type="text" name="s" value="" class="search-field" required>
-				<button type="submit"><i class="fa fa-search"></i></button>
-			</form> -->
+
 
 		</nav>
+	</div>
+	</div>
 		<!-- end: .main-nav -->
 	</div>
-	</div>
+		<div class="container" id="addwrap"style=" background-color:#fff">
+			<div class="row">
+
+				<div id="addThis"class="" ></div>
+
+			</div>
+		</div>
+
 	<!-- end: .menu-wrapper -->
 
-	<div class="clear"></div>
 
 </header>
 <!-- end: #header -->
