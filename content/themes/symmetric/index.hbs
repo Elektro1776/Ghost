@@ -37,48 +37,47 @@
 
 			<div class="col-lg-12 col-sm-12 col-xs-12">
 			{{#foreach posts limit="7" columns="2"}}
-					{{#if @first}}
+                {{#if @first}}
 				<div class="container">
 					<div class="row">
 
-					<article class=" {{post_class}} col-lg-8 col-md-8 col-sm-12 col-xs-12"  style="height:auto;">
-						<header>
-							<div class="row">
+                        <article class=" {{post_class}} col-lg-8 col-md-8 col-sm-12 col-xs-12"  style="height:auto;">
+                            <header>
+                                <div class="row">
 
-							{{#if image}}
-								<a href="{{url}}" class="thumb hover-effect">
-									<div class="col-lg-12 col-md-12 col-sm-12" style="background:url({{image}}); background-size:cover; background-repeat: no-repeat; position:static;">
-									</div>
-								</a>
-							{{else}}
-								{{content words="0"}}
-							{{/if}}
-						</div>
-					</article>
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                {{#if image}}
+                                    <a href="{{url}}" class="thumb hover-effect">
+                                        <div class="col-lg-12 col-md-12 col-sm-12" style="background:url({{image}}); background-size:cover; background-repeat: no-repeat; position:static;">
+                                        </div>
+                                    </a>
+                                {{else}}
+                                    {{content words="0"}}
+                                {{/if}}
+                                </div>
+                            </header>
+                        </article>
+					    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
+                            <div id="subscribe" class=" " style="background-color:#a6499b;">
+                                {{#if @labs.subscribers}}
+                                <div class="gh-subscribe">
+                                    <h2 class="gh-subscribe-title" style="color: #FFF;margin-bottom: 30px;font-size: 38px; font-family:Playfair Display;"> Join our Family</h2>
+                                    <p id="sub_share">Share Your Photos, Videos, and Stories with Millions of People From Planet Earth</p>
+                                    {{>subscribe_form}}
+                                </div>
+                                {{/if}}
+                            </div>
 
-						<div id="subscribe" class=" " style="background-color:#a6499b;">
-							{{#if @labs.subscribers}}
-							<div class="gh-subscribe">
-								<h2 class="gh-subscribe-title" style="color: #FFF;margin-bottom: 30px;font-size: 38px; font-family:Playfair Display;"> Join our Family</h2>
-								<p id="sub_share">Share Your Photos, Videos, and Stories with Millions of People From Planet Earth</p>
-								{{>subscribe_form}}
-							</div>
-							{{/if}}
-						</div>
+					    </div>
+                        <div class="col-lg-6 col-md-6  ">
 
-					</div>
-					<div class="col-lg-6 col-md-6  ">
+                            <span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
+                                <h1 class="title" style="line-height:36px;"><a href="{{url}}"  style="color:#fff; ">{{{title}}}</a></h1>
+                            </span>
+                        </div>
 
-					<span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
-						<h1 class="title" style="line-height:36px;"><a href="{{url}}"  style="color:#fff; ">{{{title}}}</a></h1>
-					</span>
-				</div>
-
-					</div>
-							<div class="clear"></div>
-				</header>
+                    </div>
+                    <div class="clear"></div>
 
 					<!--	<a href="javascript:void(0)" class="button dark share-button"><i class="fa fa-share-alt"></i> SHARE</a>
 						<div class="tip-content">
@@ -92,10 +91,11 @@
 							</div>
 						</div> -->
 
-				</div>
-			</div>
-					{{else}}
-					<article class=" {{post_class}} {{#if @rowStart}} col-lg-5 col-md-6 col-sm-6 col-xs-6{{/if}} {{#if @rowEnd}} col-lg-5 col-md-6 col-sm-6 col-xs-6{{/if}}" style="height:auto;">
+                </div>
+            </div>
+            <div class="col-md-8">
+                {{else}}
+					<article class=" {{post_class}} {{#if @rowStart}} col-sm-6 col-xs-6{{/if}} {{#if @rowEnd}}  col-sm-6 col-xs-6{{/if}}" style="height:auto;">
 						<header>
 							{{#if image}}
 								<a href="{{url}}" class="thumb hover-effect">
@@ -104,7 +104,7 @@
 							{{else}}
 								{{content words="0"}}
 							{{/if}}
-							<div class="clear"></div>
+                            <div class="clear"></div>
 
 							<div class="meta">
 								<div class="alignleft">
@@ -141,14 +141,16 @@
 
 
 			{{/foreach}}
-</div>
+            </div>
+            <div class="col-md-4">
+                <div class="ad-wrapper" style="margin-top: 0;">
+                    <div id="ad_4" class="">
+                        <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	</div>
-		<!-- end: .left-content
-<div class="clear"></div>
--->
-
-</div>
 
 
 

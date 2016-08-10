@@ -27,40 +27,40 @@
 			</div>
 			<div class="row">
 
-			{{#if tags}}
-			<div class="tags">
-				{{tags separator=""}}
-			</div>
-			{{/if}}
-			<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-			<a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
-		</div>
+                {{#if tags}}
+                <div class="tags">
+                    {{tags separator=""}}
+                </div>
+                {{/if}}
+                <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+                <a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
+            </div>
 
 
-</div>
-<div class="clear">
+    </div>
+    <div class="clear">
 
-</div>
-		{{#if image}}
-			{{^has tag="no cover"}}
-				<div class="container">
-					<div class="main-image cover" style="background: url({{image}});">
-						<div class="overlay"></div>
-						<div class="center grid-container">
-							<div class="boxed cover" style="background: url({{image}});"></div>
-							<div class="boxed overlay"></div>
-						</div>
-					</div>
-				</div>
+    </div>
+    {{#if image}}
+        {{^has tag="no cover"}}
+            <div class="container">
+                <div class="main-image cover" style="background: url({{image}});">
+                    <div class="overlay"></div>
+                    <div class="center grid-container">
+                        <div class="boxed cover" style="background: url({{image}});"></div>
+                        <div class="boxed overlay"></div>
+                    </div>
+                </div>
+            </div>
 
-			{{/has}}
-		{{/if}}
+        {{/has}}
+    {{/if}}
 
 
-<div class="clear">
+    <div class="clear">
 
-</div>
-<div class="container">
+    </div>
+    <div class="container">
 
 
 		<!-- start: .center -->
@@ -101,36 +101,43 @@
 								</div>
 							</section>
 								<div class="row">
-							<div class="text">{{content}}</div>
-						</div>
+							        <div class="text">{{content}}</div>
+						        </div>
+                        </section>
 					</article>
 				</div>
-			</div>
-			<div class="clear"></div>
-		</section>
-			<div class="row">
-				<div class="container">
+        </div>
+        <div class="clear"></div>
+        <div class="row">
+            <div class="container">
+                <section class="related grid-container grid-parent">
+                    <h3 class="title bordered">RELATED POSTS</h3>
+                    {{>related_posts}}
+                </section>
+            </div>
+        </div>
+    </div>
 
-					<section class="related grid-container grid-parent">
-						<h3 class="title bordered">RELATED POSTS</h3>
-						{{>related_posts}}
-					</section>
-				</div>
-				</div>
-			</div>
-
-				<div class="clear"></div>
+    <div class="clear"></div>
 				<!-- end: .content -->
 
-			</div>
 
 
-				{{/post}}
+    {{/post}}
 
-			{{>sidebar-featured}}
+    {{>sidebar-featured}}
 
 		<!-- end: .center -->
 
 
 </main>
 <!-- end: #single -->
+</div>
+
+<div class="hidden-xs col-sm-4">
+    <div class="ad-wrapper">
+        <div id="ad_4" class="">
+            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+        </div>
+    </div>
+</div>

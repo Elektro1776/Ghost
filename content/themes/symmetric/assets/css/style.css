@@ -491,6 +491,11 @@ div.meta a.comments i.fa{ margin-right: 3px; }
 .ads{ margin: 40px auto 0; }
 .ads img.img-ad{ display: block; margin: 0 auto; }
 
+.ad-wrapper{ position: absolute; margin-top: 60px; }
+.ad-wrapper-home{ position: absolute; }
+.ad-wrapper #ad_4{ position: absolute; }
+.ad-wrapper #ad_4.fixed{ position: fixed; top: 5%; }
+
 /* Buttons */
 
 .button{

@@ -533,6 +533,21 @@ $('.row-wrap').siblings().wrapAll("<div class='row' /div>");
 
 	});
 
+	var top = $('.ad-wrapper #ad_4').offset().top - parseFloat($('.ad-wrapper #ad_4').css('marginTop').replace(/auto/, 0));
+	$(window).scroll(function (event) {
+		// what the y position of the scroll is
+		var y = $(this).scrollTop();
+
+		// whether that's below the form
+		if (y >= top) {
+			// if so, ad the fixed class
+			$('.ad-wrapper #ad_4').addClass('fixed');
+		} else {
+			// otherwise remove it
+			$('.ad-wrapper #ad_4').removeClass('fixed');
+		}
+	});
+
 	function initialize(lat, lng, zoom, location) {
 		var latlng = new google.maps.LatLng(lat, lng);
 		var myOptions = {
