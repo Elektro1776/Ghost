@@ -491,10 +491,10 @@ div.meta a.comments i.fa{ margin-right: 3px; }
 .ads{ margin: 40px auto 0; }
 .ads img.img-ad{ display: block; margin: 0 auto; }
 
-.ad-wrapper{ position: absolute; margin-top: 60px; }
+.ad-wrapper{  margin-top: 60px; }
 .ad-wrapper-home{ position: absolute; }
 .ad-wrapper #ad_4{ position: absolute; }
-.ad-wrapper #ad_4.fixed{ position: fixed; top: 5%; }
+.ad-wrapper #ad_4.fixed{ position: fixed; top: 15%; }
 
 /* Buttons */
 
@@ -687,6 +687,9 @@ div.gallery a:hover:before, section.widget_ep_flickr ul li a:hover:before{
 #header div.social:hover{
 
 }
+#addwrap{background-color: #fff; height:75px;}
+
+
 #header h1.logo{ max-width: 600px; text-align: center; margin: 0 auto; }
 #header h1.logo a{ font-size: 28px; line-height: 1.2; color: #fff; }
 #header h1.logo a:hover{ }
@@ -702,7 +705,7 @@ div.gallery a:hover:before, section.widget_ep_flickr ul li a:hover:before{
 #header form input.search-field:focus{ width: 220px; }
 #header form button{ position: absolute; right: 10px; top: 7px; font-size: 14px; background: none; color: #fff; }
 
-#header div.menu-wrapper{ background: ##ffffff; }
+
 #header nav{  text-align: center; z-index: 100;  }
 
 #header nav div.social{ display: none; color: #000; }
@@ -761,7 +764,7 @@ div.gallery a:hover:before, section.widget_ep_flickr ul li a:hover:before{
 #header .is-sticky nav ul.menu{ background:#fff; }
 #header .is-sticky div.menu-wrapper{
 	z-index: 1000;
-	width: 100%;
+
 background:#fff;
 	-webkit-animation: headerPinnedSlideDown 500ms;
 	-moz-animation: headerPinnedSlideDown 500ms;
@@ -897,7 +900,7 @@ div.articles article.default div.meta{ margin-top: 0; }
 #home section.carousel article a div.meta div.tags{ float: left; }
 #home section.carousel article a div.meta time{ float: right; color: #fff;  }
 
-#single {margin-top:60px;}
+
 /* @end */
 
 /* @group Global Tweets */

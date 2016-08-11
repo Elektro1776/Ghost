@@ -43,15 +43,18 @@
     </div>
     {{#if image}}
         {{^has tag="no cover"}}
-            <div class="container">
-                <div class="main-image cover" style="background: url({{image}});">
-                    <div class="overlay"></div>
+
+                <div class="main-image cover">
+									<img src="{{image}}"  height="400" width="620" alt="" />
                     <div class="center grid-container">
                         <div class="boxed cover" style="background: url({{image}});"></div>
                         <div class="boxed overlay"></div>
                     </div>
                 </div>
-            </div>
+								<div class="addthis_sharing_toolbox ">
+
+								</div>
+
 
         {{/has}}
     {{/if}}
@@ -92,6 +95,7 @@
 										<div class="main-image"><img src="{{image}}"></div>
 									{{/if}}
 								</div>
+
 							</header>
 						{{/has}}
 						<section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
@@ -102,20 +106,13 @@
 							</section>
 								<div class="row">
 							        <div class="text">{{content}}</div>
-						        </div>
-                        </section>
+						    </div>
+
+              </section>
 					</article>
 				</div>
         </div>
         <div class="clear"></div>
-        <div class="row">
-            <div class="container">
-                <section class="related grid-container grid-parent">
-                    <h3 class="title bordered">RELATED POSTS</h3>
-                    {{>related_posts}}
-                </section>
-            </div>
-        </div>
     </div>
 
     <div class="clear"></div>
@@ -125,6 +122,7 @@
 
     {{/post}}
 
+
     {{>sidebar-featured}}
 
 		<!-- end: .center -->
@@ -133,11 +131,22 @@
 </main>
 <!-- end: #single -->
 </div>
+<div class="hidden-xs col-lg-4 col-sm-4 pull-right">
+	<div class="ad-wrapper ">
+		<div id="ad_4" >
+			<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+		</div>
+	</div>
+</div>
+<div class="clear">
 
-<div class="hidden-xs col-sm-4">
-    <div class="ad-wrapper">
-        <div id="ad_4" class="">
-            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
-        </div>
-    </div>
+</div>
+<div class="row">
+
+	<div class="col-lg-8 col-sm-8">
+		<section class="related grid-container grid-parent">
+			<h3 class="title bordered">RELATED POSTS</h3>
+			{{>related_posts}}
+		</section>
+	</div>
 </div>
