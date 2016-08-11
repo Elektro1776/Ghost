@@ -6,7 +6,8 @@
       .ready(function($) {
         var $window = $(window), ath = $('#addThis');
         setTimeout(function() {
-          ath.addClass("addthis_sharing_toolbox col-lg-offset-3")
+
+          ath.addClass("addthis_sharing_toolbox col-lg-2 ")
               .css({
                 "display" : "inline",
                 "visibility" : "hidden",
@@ -28,7 +29,10 @@
         // Mobile switch of nav-bar to addthis buttons
         //	var ath = $("#addthis_header");
         // var add = $(".addthis_sharing_toolbox");
-        var $mobile_logo = $(".mobile-logo");
+        var $mobile_logo = $(".mobile-logo"), addThis = $('#addwrap'),
+            $mobileLogoD = $('.mobile-logo_2'),
+            $logo_words = $(".mobile-logo-words"), $follow = $("#mobileFollow");
+
         /*
                   $logo_words = $(".mobile-logo-words"),
                   var $follow =
@@ -38,13 +42,22 @@
               var elTop = parseInt($height_check.offset().top);
               */ $window.scroll(function() {
           if ($('body').hasClass("post-template")) {
-            if ($(window).scrollTop() >= parseInt($('main').offset().top)) {
-
+            if ($(window).scrollTop() >= parseInt($('.meta').offset().top)) {
+              addThis.css({'visibility' : 'visible'}).sticky({zIndex : 6});
+              ath.css({'visibility' : 'visible'}).sticky({zIndex : 7});
               $mobile_logo.css({'visibility' : 'hidden'});
+              $logo_words.css({'visibility' : 'hidden'});
+              $mobileLogoD.css({'visibility' : 'visible'});
+              $follow.css({'display' : 'block'});
             }
           }
-          if ($(window).scrollTop() < parseInt($('main').offset().top)) {
+          if ($(window).scrollTop() < parseInt($('.meta').offset().top)) {
             $mobile_logo.css({'visibility' : 'visible'});
+            $logo_words.css({'visibility' : 'visible'});
+            addThis.css({'visibility' : 'hidden'});
+            ath.css({'visibility' : 'hidden'});
+            $mobileLogoD.css({'visibility' : 'hidden'});
+            $follow.css({'display' : 'none'});
           }
         });
         /*
@@ -100,38 +113,6 @@
         });
 
         $('#ad_3').affix({offset : {top : 200}}).css("top", "70px");
-
-        //$('.main-nav').sticky();
-
-        /* TODO *Hack below script to display random image posts.
-        $.get(
-                         ghost.url.api('posts', {limit: 'all'})
-         ).done(onSuccess);
-
-
-        function onSuccess(data) {
-         var $result = $('#featured-posts-list');
-         var sortedPosts = shuffleArray(data.posts);
-         var displayPosts = sortedPosts.slice(0,5);
-         $.each(displayPosts, function (i, post) {
-                         $result.append(
-                                         '<li><i class="fa fa-star"</i><a
-        href="http://dev.groupxondemand.com' + post.url + '">' + post.image +
-        '</a></li>'
-                         );
-         });
-        }
-
-        function shuffleArray(array) {
-         for (var i = array.length - 1; i > 0; i--) {
-                         var j = Math.floor(Math.random() * (i + 1));
-                         var temp = array[i];
-                         array[i] = array[j];
-                         array[j] = temp;
-         }
-         return array;
-        }
-        */
 
         $('.row-wrap').siblings().wrapAll("<div class='row' /div>");
         deBouncer(jQuery, 'smartresize', 'resize', 50);
@@ -471,7 +452,7 @@
   $(window)
       .scroll(function(event) {
         // what the y position of the scroll is
-        var y = $(this).scrollTop();
+        var y = $(window).scrollTop();
 
         // whether that's below the form
         if (y >= top) {

@@ -2,16 +2,41 @@
 
 <header id="header" style="width:100%;">
 <div class="row">
-
+	<div class="col-lg-1 col-md-1 col-sm-1  ">
 	<div class="menu-mobile hidden-lg hidden-md visible-sm visible-xs">
 		<i class="fa fa-bars" style="color:black"></i>
 	</div>
+</div>
+<span id="overlay_text" style="position: relative; top: 0px; z-index: 3;">
+	<div id="mobileFollow" style="display:none; left:70px;" class="col-md-6 col-sm-6 col-xs-5 col-sm-offset-0 col-xs-offset-2 showfm">
+		<div class="panel panel-default" style="background:none;box-shadow: 0 0px 0px rgba(0,0,0,.0); border:none;">
+			<div class="panel-heading" role="tab" id="headingTwo" style="background-color:#DB2BCC;background-image:none; border-radius:25px;">
+				<h4 class="panel-title" style="text-align:center;">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						<span style="color:white;">Follow</span>
+					</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" style="background-color:transparent;">
+				<div class="container">
+					<div class="row">
+						<div class=" header-socials " style="padding-top:10px">
+							<a class="col-xs-4 col-sm-3" href="http://facebook.com/heartcenteredrebalancing" style="border:none; margin-left:-20px"><i class="fa fa-facebook"></i></a>
+							<a class="col-xs-4 col-sm-3" href="http://youtube.com/heartcenteredrebalancing" style="border:none; left:3px;"><i class="fa fa-youtube"></i></a>
+							<a class="col-xs-1" href="http://instagram.com/heartcenteredrebalancing" style="border:none;left:9px;"><i class="fa fa-instagram"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+</span>
 
 	<!-- start: .top -->
 
 		<div class="container-fluid">
 			<div class="row visible-lg visible-md hidden-sm hidden-xs">
-				<div class="col-lg-3 col-md-3 col-lg-offset-1 ">
+				<div class="col-lg-3 col-md-3 ">
 
 			<a href="{{@blog.url}}">
 				<img src="{{asset "images/hcr_large.png"}}"  style="display:block" alt="Heart Centered Rebalancing" /></a>
@@ -24,58 +49,33 @@
 		</div>
 
 			<div class=" col-xs-2 col-xs-offset-2 " style="padding: 0px 0px 0px;">
-				<div class="mobile-logo ">
+				<div class="mobile-logo hidden-lg hidden-md visible-sm visible-xs">
 					<a href="{{@blog.url}}">
 						<img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
 				</div>
 			</div>
-
 				<div class="mobile-logo-words col-xs-6 col-sm-6 col-lg-6 hidden-lg hidden-md visible-sm visible-xs" style="padding:0px 0px 0px;">
-
-				<a href="{{@blog.url}}">
-					<img src="{{asset "images/hcrlogo-mobile-words.png"}}"  alt="Heart Centered Rebalancing" /></a>
+					<a href="{{@blog.url}}">
+						<img src="{{asset "images/hcrlogo-mobile-words.png"}}"  alt="Heart Centered Rebalancing" /></a>
 				</div>
-
-				<!--
-			<div class="container" >
-				<div class=" visible-lg visible-md hidden-xs" id="addwrap" >
-				<!	<div class=" col-xs-2 col-xs-offset-2" style="padding: 0px 0px 0px;">
-						<div class="mobile-logo_2 ">
-							<a href="{{@blog.url}}">
-								<img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
+				<div class="container-fluid">
+					<div id="addwrap" class="row hidden-xs hidden-sm">
+						<div class=" col-xs-2 col-xs-offset-2 " style="padding: 0px 0px 0px;">
+							<div class="mobile-logo_2 ">
+								<a href="{{@blog.url}}">
+									<img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
+							</div>
 						</div>
-					</div>
-					<div id="addThis"class=" hidden-xs hidden-sm" ></div>
+				<div id="addThis"class=" hidden-xs hidden-sm" ></div>
+		</div>
+	</div>
+
+					<!--
 
 				</div>
 			</div>
 
 
-			<span id="overlay_text" style="position: relative; top: 0px; z-index: 3;">
-				<div id="mobileFollow" style="visibility: hidden; left:70px;" class="col-xs-7  col-sm-6 col-lg-6 showfm">
-					<div class="panel panel-default" style="background:none;box-shadow: 0 0px 0px rgba(0,0,0,.0); border:none;">
-						<div class="panel-heading" role="tab" id="headingTwo" style="background-color:#DB2BCC;background-image:none; border-radius:25px;">
-							<h4 class="panel-title" style="text-align:center;">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									<span style="color:white;">Follow</span>
-								</a>
-							</h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" style="background-color:transparent;">
-							<div class="container">
-								<div class="row">
-									<div class=" header-socials " style="padding-top:10px">
-										<a class="col-xs-4 col-sm-3" href="http://facebook.com/heartcenteredrebalancing" style="border:none; margin-left:-20px"><i class="fa fa-facebook"></i></a>
-										<a class="col-xs-4 col-sm-3" href="http://youtube.com/heartcenteredrebalancing" style="border:none; left:3px;"><i class="fa fa-youtube"></i></a>
-										<a class="col-xs-1" href="http://instagram.com/heartcenteredrebalancing" style="border:none;left:9px;"><i class="fa fa-instagram"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="companyName" style="visibility: hidden; position: absolute; top: 8px;" class="showfm"><img src="http://heartcenteredrebalancing.com/wp-content/uploads/2016/04/mobileLogo.png"></div>
-				</div>
-			</span>
 		</div>
 -->
 
