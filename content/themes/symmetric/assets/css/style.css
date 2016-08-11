@@ -351,15 +351,51 @@ position:absolute;
 	background-color: #380036;
 }
 
-@media screen and (max-width: 768px) {
+.desktop {
+		display: inline-block;
+	}
+
+	.mobile {
+		display: none;
+	}
+
+@media screen and (max-width: 960px) {
+	.articles > div {
+		padding-right: 0;
+		padding-left: 0;
+	}
 	.social-button {
-		width: 47%;
-		margin-left: 1%;
-		margin-right: 1%;
+		width: 25%;
+		margin-left: -4px;
+		margin-right: 0;
 		display: inline-block;
 	}
 	.gh-subscribe .container {
 		width: 100%;
+	}
+
+	.desktop {
+		display: none;
+	}
+
+	.mobile {
+		display: inline-block;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.social-button {
+		text-align: center;
+		width: 21.5%;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+
+	.social-button a i {
+		float: none;
+	}
+	.mobile {
+		display: none;
 	}
 }
 
