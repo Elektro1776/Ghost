@@ -1,4 +1,4 @@
-{{!< default}}
+  {{!< default}}
 
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
@@ -51,20 +51,41 @@
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sign-up-size">
 
-
-                                <div id="subscribe" style="background-color:#a6499b;">
+                                <div id="subscribe" class=" " style="background-color:#a6499b;">
                                     {{#if @labs.subscribers}}
-                                    <div class="gh-subscribe">
-                                        <h2 class="gh-subscribe-title" style="color: #FFF;margin-bottom: 30px;font-size: 38px; font-family:Playfair Display;"> Join our Family</h2>
-                                        <p id="sub_share">Share Your Photos, Videos, and Stories with Millions of People From Planet Earth</p>
-                                        {{>subscribe_form}}
-                                    </div>
+                                        <div class="gh-subscribe">
+                                            <h2 class="gh-subscribe-title" style="color: #FFF;margin-bottom: 30px;font-size: 38px; font-family:Playfair Display;"> Join our Family</h2>
+                                            <p id="sub_share">Share Your Photos, Videos, and Stories with Millions of People From Planet Earth</p>
+                                            <div class="social-button fb-button">
+                                                <a href="www.facebook.com">
+                                                    <span>Sign in with Facebook</span>
+                                                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div class="social-button tw-button">
+                                                <a href="www.twitter.com">
+                                                    <span>Sign in with Twitter</span>
+                                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div class="social-button in-button">
+                                                <a href="www.instagram.com">
+                                                    <span>Sign in with Instagram</span>
+                                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div class="social-button email-button">
+                                                <a href="{{@blog.url}}/subscribe/">
+                                                    <span>Sign in with Email</span>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     {{/if}}
                                 </div>
 
                             </div>
                             <div class="col-lg-6 col-md-6 ">
-
 
                             </div>
 
@@ -86,8 +107,6 @@
 							{{else}}
 								{{content words="0"}}
 							{{/if}}
-							<div class="clear"></div>
-
 							<div class="meta">
 								<div class="alignleft">
 
@@ -97,9 +116,9 @@
 								<div class="clear"></div>
 							</div>
 						</header>
-						<div class="post-excerpt" style="line-height:22px; color:#282828; font-weight:500;">
+					<div class="post-excerpt" style="line-height:22px; color:#282828; font-weight:500;">
 							{{excerpt words="20"}}...
-							<a href="{{url}}" class="continue_reading" style="opactiy: .5;">Continue Reading</a>
+						<a href="{{url}}" class="continue_reading" style="opactiy: .5;">Continue Reading</a>
 							<i class="fa fa-angle-double-right"></i>
 							<div class="clear"></div>
 						</div>
@@ -113,6 +132,21 @@
 
 			{{/foreach}}
             </div>
+
+            <div class="col-md-4">
+                <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 0;">
+                    <div id="ad_4" class="">
+                        <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </main>
+
+
+
+
+	<!-- end: .center -->
+
+
+</main>
 </div>

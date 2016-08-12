@@ -17,11 +17,13 @@
 }
 @media screen and (min-width: 1200px){
 	.container{max-width: 1180px; width:auto;}
+
 }
 
 @media screen and (min-width: 960px) and (max-width: 1024px){
 
 	#header .top div.social{ display: block !important; }
+
 
 }
 @media screen and (max-width: 960px){
@@ -33,11 +35,12 @@
 
 /* All Mobile Devices */
 @media screen and (max-width:400px){
-.main-image{height:187px!important;}
+./*main-image{height:187px!important;}*/
 }
 @media screen and (min-width: 959px){
 }
-@media screen and (max-width: 959px){
+@media screen and (max-width: 960px){
+
 	#logo{margin-left: 50px;
     margin-top: -15px;}
 
@@ -120,44 +123,67 @@ div.articles article div.post-excerpt{
 
 }
 @media screen and (max-width:991px) and (min-width:768px){
+	#header div.menu-wrapper{
+		position: absolute;
+		left: -5%;
+		top: 50%;
+		margin-top: -25px;
+		z-index: 100;
+		padding: 40px 0 10px;
+		border-radius: 3px;
+		-webkit-opacity: 0;
+		opacity: 0;
+		visibility: hidden;
+		-webkit-transition: all 300ms ease;
+		-moz-transition: all 300ms ease;
+		-ms-transition: all 300ms ease;
+		-o-transition: all 300ms ease;
+		transition: all 300ms ease;
+	}
 	h1.title{
 		font-size: 32px;
 		line-height: 40px;
 	}
 	#header{margin-top:10px;}
 	.mobile-logo{margin-top:-15%}
-	#single div.main-image.cover {
+/*	#single div.main-image.cover {
 			height: 300px;
 			width: 420px;
 			position: relative;
-			z-index: 1;}
+			z-index: 1;}*/
 }
 
 }
 /* Tablets */
+@media screen and (max-width: 680px){
+	.container {max-width:480px;}
+}
 @media screen and (max-width: 768px){
-	#logo {
-		margin-top: -5px;
-	}
-	.mobile-margin{ margin-top: 50px;}
+	.main{margin-top:100px;}
+	#logo {margin-top: -5px;}
+		.mobile-margin{ margin-top: 50px;}
+		.mobile-logo{display:block!important;}
+.mobile-logo-words{display:block!important;}
+}
 @media screen and (max-width:767px){
+
 	#ad_1>img{display:none!important;}
 	.mobile-margin{margin-top: 60px;}
 	.container{max-width: 480px;}
 	.mobile-logo-words{margin-top:5%}
-	#single div.main-image.cover {
+/*	#single div.main-image.cover {
 			height: 300px;
 			width: 420px;
 			position: relative;
-			z-index: 1;}
+			z-index: 1;}*/
 }
-}
+
 @media screen and (min-width:769px) {
-	#single div.main-image.cover {
+/*	#single div.main-image.cover {
 			height: 400px;
 
 			position: relative;
-			z-index: 1;}
+			z-index: 1;}*/
 }
 @media screen and (min-width: 768px) and (max-width: 990px){
 
@@ -168,13 +194,13 @@ div.articles article div.post-excerpt{
 
 	aside#featured{ padding-left: 0; margin-top:140px; }
 #ad_1>img{display:none;}
-.meta{margin-top:100px;}
+.main{margin-top:100px;}
 .menu-mobile{margin-top:0px;}
-#single div.main-image.cover {
+/*#single div.main-image.cover {
 		height: 300px;
 		width: 420px;
 		position: relative;
-		z-index: 1;}
+		z-index: 1;}*/
 h1.title{
 	 font-size: 32px; line-height: 40px;}
 	 .col-xs-6{width:48%;}
@@ -184,18 +210,18 @@ h1.title{
 
 /* SmartPhones and small tablets */
 @media screen and (max-device-width: 480px){
-	.main-image{height:250px!important;}
+/*	.main-image{height:250px!important;}*/
 }
 @media screen and (max-width: 480px) {
 	body.post-template div.text{
 		font-size: 14px;
 		line-height: 24px;
 	}
-	#single div.main-image.cover {
+	/*#single div.main-image.cover {
 			height: 200px;
 			width: 300px;
 			position: relative;
-			z-index: 1;}
+			z-index: 1;}*/
 }
 };
 /* ----------- iPhone 4 and 4S ----------- */
@@ -205,8 +231,8 @@ h1.title{
   and (min-device-width: 320px)
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 3) {
-		#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
-		#ad_1>img{display:none;}
+	/*	#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
+	*/	#ad_1>img{display:none;}
 		#ad_3 img{display:none}
 		#post_title{font-size:24px;line-height:32px;}
 		#header{ padding-top: 12px; height:80px; }
@@ -230,7 +256,7 @@ h1.title{
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-		.main-image{height:187px!important;}
+	/*	.main-image{height:187px!important;}*/
 }
 
 /* Landscape */
@@ -249,12 +275,12 @@ h1.title{
   and (min-device-width: 320px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
-		#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
-		#ad_1>img{display:none;}
+		/*#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
+	*/	#ad_1>img{display:none;}
 		#ad_3 img{display:none}
 		#post_title{font-size:24px;line-height:32px;}
 		#header{ padding-top: 12px; height:80px; }
-		.main{margin-top:80px;}
+
 }
 
 /* Portrait */
@@ -281,8 +307,8 @@ h1.title{
   and (min-device-width: 375px)
   and (max-device-width: 667px)
   and (-webkit-min-device-pixel-ratio: 2) {
-		#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
-		div.text p{margin-right:0 !important;}
+	/*	#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
+		*/div.text p{margin-right:0 !important;}
 			#ad_1>img{display:none;}
 			#ad_3 img{display:none}
 			#post_title{font-size:24px;line-height:32px;}
@@ -317,8 +343,8 @@ h1.title{
   and (min-device-width: 414px)
   and (max-device-width: 736px)
   and (-webkit-min-device-pixel-ratio: 3) {
-		#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
-    div.text p{margin-right:0 !important;}
+	/*	#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
+    */div.text p{margin-right:0 !important;}
 			#ad_1>img{display:none;}
 			#ad_3 img{display:none}
 			#post_title{font-size:24px;line-height:32px;}
@@ -351,8 +377,8 @@ and (device-height: 640px)
 and (-webkit-min-device-pixel-ratio : 3)
 and (-webkit-device-pixel-ratio : 4)
 and (orientation: portrait) {
-	#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
-div.text p{margin-right:0 !important;}
+	/*#single div.main-image{ height: 187px !important; width:290px!important; margin-top: 40px; }
+*/div.text p{margin-right:0 !important;}
 	#ad_1>img{display:none;}
 	#ad_3 img{display:none}
 	#post_title{font-size:24px;line-height:32px;}
@@ -372,8 +398,8 @@ div.text p{margin-right:0 !important;}
 	#ad_3 img{display:none}
 	#post_title{font-size:24px;line-height:32px;}
 	#header{ padding-top: 12px; height:80px; }
-	.meta{margin-top:30px;}
-	.main{margin-top:60px;}
+
+
 }
 
 /* Portrait */
@@ -386,8 +412,7 @@ div.text p{margin-right:0 !important;}
 	#ad_3 img{display:none}
 	#post_title{font-size:24px;line-height:32px;}
 	#header{ padding-top: 12px; height:80px; }
-	.meta{margin-top:30px;}
-	.main{margin-top:60px;}
+
 }
 
 /* Landscape */
@@ -413,8 +438,7 @@ div.text p{margin-right:0 !important;}
 		#ad_1>img{display:none;}
 		#ad_3 img{display:none}
 		#header{ padding-top: 12px; height:80px; }
-		.meta{margin-top:30px;}
-		.main{margin-top:60px;}
+
 		.col-xs-6{ width:48%;}
 }
 
@@ -456,8 +480,7 @@ div.text p{margin-right:0 !important;}
 		#ad_3 img{display:none}
 		#post_title{font-size:24px;line-height:32px;}
 		#header{ padding-top: 12px; height:20px; }
-		.meta{margin-top:40px;}
-		.main{margin-top:60px;}
+
 		.col-xs-6{ width:48%;}
 }
 
@@ -540,12 +563,12 @@ div.text p{margin-right:0 !important;}
 
 	/* @group Single Post */
 
-	#single div.main-image.cover {
+/*	#single div.main-image.cover {
 			height: 300px;
 			width: 420px;
 			position: relative;
 			z-index: 1;
-	 margin-top: 40px; }
+	 margin-top: 40px; }*/
 	#single div.main-image .info div.meta .title{ font-size: 20px; }
 
 	/*#single section.related article{ padding: 0; }*/
