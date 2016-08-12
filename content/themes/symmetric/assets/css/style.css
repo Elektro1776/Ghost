@@ -869,6 +869,25 @@ div.articles article.default div.meta{ margin-top: 0; }
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
 }
+
+#home .featured-img-size{
+	height: 600px;
+}
+
+@media only screen and (max-width: 991px) {
+    #home .featured-img-size{
+        height: 300px;
+    }
+
+    .featured-row .sign-up-size{
+        margin-top: 25px;
+        margin-bottom: 50px;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+}
+
 #home section.carousel article a div.meta{
 	width: 100%;
 	-webkit-box-sizing: border-box;
