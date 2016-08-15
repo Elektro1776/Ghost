@@ -5,13 +5,15 @@
   $(document)
       .ready(function($) {
         var $window = $(window), ath = $('#addThis');
+
         setTimeout(function() {
 
           ath.addClass("addthis_sharing_toolbox col-lg-2 ")
               .css({
                 "display" : "inline",
                 "visibility" : "hidden",
-                "margin-top" : "5px"
+                "margin-top" : "5px",
+                "max-width" : "175px"
               });
           var x = $('#atstbx a span'), y = $('#atstbx a span svg'),
               z = $('#atstbx .at-share-btn');
@@ -27,22 +29,18 @@
         }, 500);
 
         // Mobile switch of nav-bar to addthis buttons
-        //	var ath = $("#addthis_header");
-        // var add = $(".addthis_sharing_toolbox");
+
         var $mobile_logo = $(".mobile-logo"), addThis = $('#addwrap'),
             $mobileLogoD = $('.mobile-logo_2'),
             $logo_words = $(".mobile-logo-words"), $follow = $("#mobileFollow");
+        var post_header = parseInt($('.meta').offset().top, 10);
+        var home_header = parseInt($('.mobile-logo').offset().top, 10);
 
-        /*
-                  $logo_words = $(".mobile-logo-words"),
-                  var $follow =
-           $("#mobileFollow"),
-                  $menuHeader = $('#menu-header '), addThis = $('#addwrap'),
-                  window_width = $window.width(), $height_check = $('main');
-              var elTop = parseInt($height_check.offset().top);
-              */ $window.scroll(function() {
+        $window.scroll(function() {
+          // check if we are on the post page
+          var scroll_top = $(window).scrollTop();
           if ($('body').hasClass("post-template")) {
-            if ($(window).scrollTop() >= parseInt($('.meta').offset().top)) {
+            if (scroll_top >= post_header) {
               addThis.css({'visibility' : 'visible'}).sticky({zIndex : 6});
               ath.css({'visibility' : 'visible'}).sticky({zIndex : 7});
               $mobile_logo.css({'visibility' : 'hidden'});
@@ -51,7 +49,7 @@
               $follow.css({'display' : 'block'});
             }
           }
-          if ($(window).scrollTop() < parseInt($('.meta').offset().top)) {
+          if (scroll_top < post_header) {
             $mobile_logo.css({'visibility' : 'visible'});
             $logo_words.css({'visibility' : 'visible'});
             addThis.css({'visibility' : 'hidden'});
@@ -59,56 +57,10 @@
             $mobileLogoD.css({'visibility' : 'hidden'});
             $follow.css({'display' : 'none'});
           }
-        });
-        /*
-                            $logo_words.css({'visibility' : 'hidden'});
-                            $follow.css({'visibility' : 'visible'});
-                            if (parseInt(window_width, 10) < 990) {
-                              ath.css({'visibility' : 'hidden'});
-                            }
-                            if (parseInt(window_width, 10) > 990) {
-                              $menuHeader.css({'visibility' : 'hidden'});
-                              ath.css({'visibility' : 'visible'});
-                              addThis.sticky({zIndex : 5});
-                              $mobile_logo.css({'display' : 'block'})
-                                  .sticky({height : 85, zIndex : 6});
-                            }
-                          } /*else if ($('body').hasClass("home-template")) {
-                          //  $logo.css({'display' : 'block'});
-                      }
-                      if ($('body').hasClass("post-template")) {
-                if ($(window).scrollTop() < elTop) {
-
-                  $mobile_logo.css({'visibility' : 'visible'});
-                  $logo_words.css({'visibility' : 'visible'});
-                  $follow.css({'visibility' : 'hidden'});
-                  ath.css({
-                    "display" : "inline",
-                    "visibility" : "hidden",
-                    "position" : "fixed"
-                  });
-
-                } else if ($('body').hasClass("home-template")) {
-                  $logo.css({'display' : 'block'});
-                }
-                      }
-
-                      if ($('body').hasClass("post-template") && window_width
-           > 991 &&
-                          $('main').scrollTop() > elTop) {
-                $menuHeader.css({'display' : 'none'});
-                      } else {
-                $menuHeader.css({'display' : 'block'});
-                      }
-            });
-            */
-
-        $window.resize(function() {
-
-          if ($window.width() > 549) {
-            $('#ad_2')
-                .affix({offset : {top : 450}})
-                .css({"top" : "80px", "z-index" : "1000"});
+          if ($('body').hasClass('home-template') &&
+              scroll_top >= home_header) {
+            $mobile_logo.css({'visibility' : 'hidden'});
+            $logo_words.css({'visibility' : 'hidden'});
           }
         });
 
@@ -119,7 +71,24 @@
 
         /* Global
 
-        */ if ($('body').hasClass('home-template')) {
+
+        var page = 2;
+        var url_blog = window.location;
+        $(window)
+            .scroll(function() {
+              if ($(window).scrollTop() + $(window).height() ==
+                  $(document).height()) {
+                $.get((url_blog + '/page/' + page), function(content) {
+                  if (page <= max_pages) {
+                    $('.').append($(content).children('.post'));
+                    page = page + 1;
+                  }
+                });
+              }
+            });
+            */
+
+        if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
             $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
           }
@@ -452,7 +421,7 @@
   $(window)
       .scroll(function(event) {
         // what the y position of the scroll is
-        var y = $(window).scrollTop();
+        var y = $(this).scrollTop();
 
         // whether that's below the form
         if (y >= top) {

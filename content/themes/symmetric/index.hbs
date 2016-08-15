@@ -3,29 +3,13 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 <div class=" mobile-margin col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <main id="home" class="main" role="main">
+  <main id="home" class="main" role="main">
+		<div class="section articles  ">
 
-
-        <!--{{#foreach posts limit="6"}}
-            {{#if image}}
-                <div id="featured-posts-list">
-                    <a href="{{url}}" class="thumb hover-effect">
-                        <img src="{{image}}" style="">
-                    </a>
-                </div>
-
-            {{/if}}
-        {{/foreach}}  -->
-
-
-
-
-		<div class="section articles row ">
-
-			<div class="col-lg-12 col-sm-12 col-xs-12">
+			<div class="container">
 			{{#foreach posts limit="7" columns="2"}}
                 {{#if @first}}
-                    <div class="container">
+                    <div class="Featured-wrapper" >
                         <div class="row featured-row">
 
                             <article class=" {{post_class}} col-lg-8 col-md-8 col-sm-12 col-xs-12"  style="height:auto;">
@@ -49,56 +33,55 @@
                                 </header>
                             </article>
 
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sign-up-size">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sign-up-size" >
 
-                                <div id="subscribe" class=" " style="background-color:#a6499b;">
+                                <div id="subscribe" class=" " style="background-color:#a6499b;padding:30px;">
                                     {{#if @labs.subscribers}}
                                         <div class="gh-subscribe">
                                             <h2 class="gh-subscribe-title" style="color: #FFF;margin-bottom: 30px;font-size: 38px; font-family:Playfair Display;"> Join our Family</h2>
                                             <p id="sub_share">Share Your Photos, Videos, and Stories with Millions of People From Planet Earth</p>
+                                            <div class="" style="display:inline;">
+
                                             <div class="social-button fb-button">
                                                 <a href="www.facebook.com">
-                                                    <span>Sign in with Facebook</span>
+                                                    <span class="hidden-xs">Sign in with Facebook</span>
                                                     <i class="fa fa-facebook-official" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                             <div class="social-button tw-button">
                                                 <a href="www.twitter.com">
-                                                    <span>Sign in with Twitter</span>
+                                                    <span class="hidden-xs">Sign in with Twitter</span>
                                                     <i class="fa fa-twitter" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                             <div class="social-button in-button">
                                                 <a href="www.instagram.com">
-                                                    <span>Sign in with Instagram</span>
+                                                    <span class="hidden-xs">Sign in with Instagram</span>
                                                     <i class="fa fa-instagram" aria-hidden="true"></i>
                                                 </a>
                                             </div>
                                             <div class="social-button email-button">
                                                 <a href="{{@blog.url}}/subscribe/">
-                                                    <span>Sign in with Email</span>
+                                                    <span class="hidden-xs">Sign in with Email</span>
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                 </a>
                                             </div>
+                                          </div>
                                         </div>
                                     {{/if}}
                                 </div>
 
                             </div>
-                            <div class="col-lg-6 col-md-6 ">
-
-                            </div>
-
-					    </div>
+                          </div>
                         <div class="clear"></div>
-
-
-
 				    </div>
 			</div>
+      <div class="container">
+
+
             <div class="col-md-8" style="margin-top: 50px;">
                 {{else}}
-					<article class=" {{post_class}} {{#if @rowStart}} col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-12{{/if}}" style="height:auto;">
+					<article class=" {{post_class}} {{#if @rowStart}} col-md-6 col-sm-6 col-xs-6{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-6{{/if}}" style="height:auto;">
 						<header>
 							{{#if image}}
 								<a href="{{url}}" class="thumb hover-effect">
@@ -124,14 +107,11 @@
 						</div>
 						    {{/if}}
 					</article>
-
 				{{else}}
-
 					{{> default-article}}
 
-
 			{{/foreach}}
-            </div>
+  </div>
 
             <div class="col-md-4">
                 <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 0;">
@@ -141,7 +121,7 @@
                 </div>
             </div>
         </div>
-
+</div>
 
 
 
