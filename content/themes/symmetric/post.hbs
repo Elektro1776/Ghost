@@ -13,28 +13,31 @@
 	<!-- start: .meta -->
 	<div class="meta col-lg-12 col-md-12 col-xs-12">
 
-			<h1 class="title" id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
-			<div class="dropdown" style="margin-left: 0px;">
-						<button id="follow-button" class="btn" style="margin-bottom:10px;">Follow</button>
+        <h1 class="title" id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
 
-							<ul class="dropdown-menu header-socials" style="border:none; background:none;box-shadow:none; ">
-								<li class="facebook"><a href="http://facebook.com/heartcenteredrebalancing" style="border:none;">
-									<i class="fa fa-facebook"></i></a></li>
+        <div style="background-color:lightblue"></div>
 
-								<li class="instagram"><a href="http://instagram.com/heartcenteredrebalancing" style="border:none;">
-									<i class="fa fa-instagram"></i></a></li>
-							</ul>
-			</div>
-			<div class="row">
+        <div class="dropdown hide" style="margin-left: 0px;">
+                    <button id="follow-button" class="btn" style="margin-bottom:10px;">Follow</button>
 
-                {{#if tags}}
-                <div class="tags">
-                    {{tags separator=""}}
-                </div>
-                {{/if}}
-                <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-                <a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
+                        <ul class="dropdown-menu header-socials" style="border:none; background:none;box-shadow:none; ">
+                            <li class="facebook"><a href="http://facebook.com/heartcenteredrebalancing" style="border:none;">
+                                <i class="fa fa-facebook"></i></a></li>
+
+                            <li class="instagram"><a href="http://instagram.com/heartcenteredrebalancing" style="border:none;">
+                                <i class="fa fa-instagram"></i></a></li>
+                        </ul>
+        </div>
+        <div class="row">
+
+            {{#if tags}}
+            <div class="tags">
+                {{tags separator=""}}
             </div>
+            {{/if}}
+            <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+            <a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
+        </div>
 
 
     </div>
