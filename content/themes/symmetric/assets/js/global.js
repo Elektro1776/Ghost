@@ -70,23 +70,22 @@
         deBouncer(jQuery, 'smartresize', 'resize', 50);
 
         /* Global
-
-
+*/
         var page = 2;
         var url_blog = window.location;
         $(window)
             .scroll(function() {
               if ($(window).scrollTop() + $(window).height() ==
                   $(document).height()) {
-                $.get((url_blog + '/page/' + page), function(content) {
+                $.get((url_blog + '/page/' + page), function(data) {
                   if (page <= max_pages) {
-                    $('.').append($(content).children('.post'));
+                    var content = $('' + data + '');
+                    $('.content').append(content.find('.content').children());
                     page = page + 1;
                   }
                 });
               }
             });
-            */
 
         if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
