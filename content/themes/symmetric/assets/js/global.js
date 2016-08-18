@@ -70,7 +70,47 @@
         deBouncer(jQuery, 'smartresize', 'resize', 50);
 
         /* Global
-*/
+          */
+
+        // FADE-OUT READ MORE button
+        var $el, $p, $ps, $up, totalHeight, articleHeight;
+
+        $(" .fade-out .btn")
+            .click(function() {
+
+              totalHeight = 0;
+              articleHeight = $('.fade-out').children().not('.read-more');
+              $el = $(this);
+              console.log($el);
+              $p = $el.parent();
+              console.log($p);
+              $up = $p.parent();
+              console.log($up);
+              $ps = $up.find(articleHeight);
+
+              // measure how tall inside should be by adding together heights of
+              // all inside paragraphs (except read-more paragraph)
+              $ps.each(function() { totalHeight += $(this).outerHeight(); });
+              console.log($(this).outerHeight());
+              console.log($ps);
+              $up.css({
+                   // Set height to prevent instant jumpdown when max height is
+                   // removed
+                   "height" : $up.height(),
+                   "max-height" : 9999
+                 })
+                  .animate({"height" : totalHeight});
+
+              // fade out read-more
+              $p.fadeOut();
+
+              // prevent jump-down
+              return false;
+
+            });
+        // END OF READ MORE BUTTON FADE OUT
+
+        // INFINITE SCROLL
         var page = 2;
         var url_blog = window.location;
         $(window)
@@ -86,7 +126,7 @@
                 });
               }
             });
-
+        // END INFINITE SCROLL
         if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
             $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
