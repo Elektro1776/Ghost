@@ -48,7 +48,7 @@
         {{^has tag="no cover"}}
 
                 <div class="main-image cover">
-									<img src="{{image}}"  height="400" width="620" alt="" />
+									<img src="{{image}}"  height="400"  alt="" />
                     <div class="center grid-container">
                         <div class="boxed cover" style="background: url({{image}});"></div>
                         <div class="boxed overlay"></div>
@@ -102,13 +102,21 @@
 							</header>
 						{{/has}}
 						<section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
-							<section class="widget widget_text col-lg-6 col-md-6 col-sm-8 xs-6">
+							<div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10">
+									{{subscribe_form placeholder="Your Email Here"}}
+								</div>
+							<section class="widget widget_text col-lg-5 col-md-6 col-sm-8 xs-6">
 								<div id="ad_4" class="">
 									<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
 								</div>
 							</section>
+
+
+{{#if error}}
+    <p class="main-error">{{{error.message}}}</p>
+{{/if}}
 								<div class="row fade-out">
-									
+
 							        	<div class="text">{{content}}</div>
 													<p class="read-more"><a class="btn" href="#">Read More</a></p>
 
@@ -149,10 +157,13 @@
 </div>
 <div class="row">
 
-	<div class="col-lg-8 col-sm-8">
+	<div class=" col-lg-8 col-sm-8">
 		<section class="related grid-container grid-parent">
 			<h3 class="title bordered">RELATED POSTS</h3>
 			{{>related_posts}}
+			<div class="loaded_content">
+
+			</div>
 		</section>
 	</div>
 </div>

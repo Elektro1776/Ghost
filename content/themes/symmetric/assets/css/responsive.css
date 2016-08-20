@@ -146,6 +146,8 @@ div.articles article div.post-excerpt{
 	}
 	#header{margin-top:10px;}
 	.mobile-logo{margin-top:-15%}
+	.post_subscribe_form{float:left!important;}
+
 /*	#single div.main-image.cover {
 			height: 300px;
 			width: 420px;
@@ -153,7 +155,7 @@ div.articles article div.post-excerpt{
 			z-index: 1;}*/
 }
 
-}
+
 /* Tablets */
 @media screen and (max-width: 680px){
 	.container {max-width:480px;}
@@ -601,7 +603,7 @@ and (orientation: portrait) {
 
 	/* @group Forms */
 
-	input[type=text], input[type=password], input[type=email], input[type=tel], input[type=url], textarea{ width: 95%; }
+	input[type=text], input[type=password], input[type=email], input[type=tel], input[type=url], textarea{ width: 100%; }
 
 	/* @end */
 

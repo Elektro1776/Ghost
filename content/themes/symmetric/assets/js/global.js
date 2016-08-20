@@ -69,9 +69,6 @@
         $('.row-wrap').siblings().wrapAll("<div class='row' /div>");
         deBouncer(jQuery, 'smartresize', 'resize', 50);
 
-        /* Global
-          */
-
         // FADE-OUT READ MORE button
         var $el, $p, $ps, $up, totalHeight, articleHeight;
 
@@ -117,21 +114,116 @@
             .scroll(function() {
               if ($(window).scrollTop() + $(window).height() ==
                   $(document).height()) {
-                $.get((url_blog + '/page/' + page), function(data) {
-                  if (page <= max_pages) {
-                    var content = $('' + data + '');
-                    $('.content').append(content.find('.content').children());
-                    page = page + 1;
-                  }
-                });
+                $
+                    .get(ghost.url.api(
+                        'posts',
+                        {limit : 4, filter : 'id:-{{id}}', include : "author"}))
+                    .done(function(data) {
+                      $.each(data.posts,
+                             function(i, post) { insertPost(post); });
+                      console.log('posts', data.posts);
+                    })
+                    .fail(function(err) { console.log(err); });
+
+                function insertPost(postData) {
+                  var postInfo =
+                      '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
+                                  <a href="' +
+                      postData.url +
+                      '" class="local thumb hover-effect"><img src="' +
+                      postData.image + '"></a>\
+                      <h4 class="title"><a href="' +
+                      postData.url + '">' + postData.title + '</a></h4>\
+                      <div class="meta">\
+                      <div class="tags"></div>\
+                      <i class="fa fa-circle"></i><span class="author">Heart Centered Rebalancing</span>\
+                      </article>\
+                                  ';
+
+                  $('article').last().after(postInfo);
+                }
+                // var content = $('.content').children();
+                /*
+                                $.get((url_blog + '/page/' + page),
+                   function(data) {
+                                  if (page <= max_pages) {
+                                    var content = $('' + data + '');
+                                    $('.content').append(content.find('.content').children());
+                                    page = page + 1;
+                                  }
+                                });*/
               }
             });
         // END INFINITE SCROLL
+        // Update window.history
+        /*  $.fn.inView = function() {
+          // Window Object
+          var win = $(window);
+          // Object to Check
+          obj = $(this);
+          // console.log(obj);
+          // the top Scroll Position in the page
+          var scrollPosition = win.scrollTop();
+          // the end of the visible area in the page, starting from the scroll
+          // position
+          var visibleArea = win.scrollTop() + win.height();
+          // the end of the object to check
+          var objEndPos = (obj.offset().top + obj.outerHeight());
+          return (visibleArea >= objEndPos && scrollPosition <= objEndPos
+                      ? true
+                      : false);
+        };
+*/ $.fn.isOnScreen = function() {
+
+          var win = $(window);
+
+          var viewport = {top : win.scrollTop(), left : win.scrollLeft()};
+          viewport.right = viewport.left + win.width();
+          viewport.bottom = viewport.top + win.height();
+
+          var bounds = this.offset();
+          bounds.right = bounds.left + this.outerWidth();
+          bounds.bottom = bounds.top + this.outerHeight();
+
+          return (
+              !(viewport.right < bounds.left || viewport.left > bounds.right ||
+                viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+        };
+        $(window)
+            .scroll(function(e) {
+
+              $('.local')
+                  .each(function() {
+                    //  console.log(index + ':' + $(this).attr('href'));
+                    if ($(this).isOnScreen() === true) {
+                      (window.history.replaceState('state', 'null',
+                                                   $(this).attr('href')));
+                      return e.preventDefault();
+                    }
+
+                    console.log($(this).isOnScreen());
+                  });
+              //$(".local").addClass("active");
+              // window.history.pushState("state", "title",
+              //           $(this).attr('href'));
+              //  console.log($(this));
+
+              // if ($(".local:eq(1)").inView() == false) {
+              //$(".local").removeClass("active");
+              //  window.history.pushState("state", "title",
+              //   $('.active:eq(2)').attr('href'));
+
+              //}
+
+            });
         if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
             $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
           }
         }
+        /* Global
+          */
         $('#header div.menu-mobile')
             .click(function() { $('#header')
                                     .toggleClass('menu-open'); });

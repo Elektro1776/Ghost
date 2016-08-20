@@ -1,57 +1,16 @@
 <form method="post" action="{{action}}" class="{{form_class}}">
     {{! This is required for the form to work correctly }}
     {{hidden}}
-  <!--<div>
-    <div class="form-group{{#if error}} error{{/if}}" style="margin-left:50px;">
-        {{input_email class=input_class placeholder="Your email address" value=email autofocus=autofocus}}
-    </div>
-  </div>-->
-    <div class="col-xs-3 col-md-12">
-        <div class="social-button fb-button">
-            <a href="www.facebook.com">
-                <span class="hidden-xs">Sign in with Facebook</span>
-                <i class="sub-icon fa fa-facebook-official" aria-hidden="true"></i>
-            </a>
+<div class="row">
+      <div class="col-md-7 col-xs-7" style="padding:0;">
+        <div class="form-group{{#if error}} error{{/if}}" >
+            {{input_email class=input_class placeholder=placeholder value=email autofocus=autofocus}}
         </div>
+      </div>
+    <div class="col-md-4 col-xs-5" style="padding:0;">
+        <button class="{{button_class}} subscribe_btn  " type="submit" >Subscribe</button>
     </div>
-
-
-    <div class="col-xs-3 col-md-12">
-        <div class="social-button tw-button">
-        <a href="www.twitter.com">
-          <span class="hidden-xs">Sign in with Twitter</span>
-          <i class="sub-icon fa fa-twitter" aria-hidden="true"></i>
-        </a>
-        </div>
-    </div>
-
-    <div class="col-xs-3 col-md-12">
-        <div class="social-button in-button">
-        <a href="www.instagram.com">
-          <span class="hidden-xs">Sign in with Instagram</span>
-          <i class="sub-icon fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        </div>
-    </div>
-
-    <div class="col-xs-3 col-md-12">
-        <div class="social-button email-button">
-        <a href="">
-          <span class="hidden-xs">Sign in with Email</span>
-          <i class="sub-icon fa fa-envelope" aria-hidden="true"></i>
-        </a>
-        </div>
-    </div>
-
-
-    <div class="container" style="text-align: center">
-
-    <button class="{{button_class}} btn" type="submit">Subscribe</button>
-    </div>
-
-    <div class="form-group hide {{#if error}} error{{/if}}">
-        {{input_email class=input_class placeholder=placeholder value=email autofocus=autofocus}}
-    </div>
+</div>
     {{! This is used to get extra info about where this subscriber came from }}
     {{script}}
 </form>

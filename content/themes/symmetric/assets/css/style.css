@@ -363,6 +363,39 @@ position:absolute;
 		width: 100%;
 	}
 }
+/*POST PAGE SUBSCRIBE BAR */
+
+.post-template .social-button {
+	width: 40%;
+	padding: 15px;
+	margin-bottom: 10px;
+	float:right;
+}
+
+.post-template.social-button:hover {
+	opacity: 0.7;
+}
+
+.post-template .social-button a {
+	color: white;
+	font-size: 18px;
+	text-decoration: none;
+}
+
+.post-template .social-button a:hover {
+	color: white;
+}
+
+.post-template .social-button a i {
+	float: right;
+	font-size: 21px;
+}
+.post-template .form-wrapper{
+	padding:0;
+}
+.post-template .input-wrapper{
+	padding:0;
+}
 
 /*Black Social Icons -------------------------------------------------------------*/
 .header-socials li a {
@@ -919,6 +952,8 @@ div.articles article.default div.meta{ margin-top: 0; }
 
 }
 
+
+
 #home section.carousel article a div.meta{
 	width: 100%;
 	-webkit-box-sizing: border-box;
@@ -1065,6 +1100,30 @@ section.tweets div.slick .slick-next{ right: 20px; }
 #single .left-content article.post div.main-image{ margin-bottom: 20px; }
 #single .left-content article.post div.main-image img{ max-width: 100%; height: auto; }
 
+/*Subscribe btn*/
+.subscribe_btn{
+ background-color:#DB2BCC;
+ color:white;
+ display: block;
+ text-align: center;
+
+ padding: 10px 2.5%;
+ height: 51px;
+ line-height: 25px;
+ width: 100%;
+ margin-bottom: 15px;
+ -webkit-transition: all 300ms ease;
+ -moz-transition: all 300ms ease;
+ -ms-transition: all 300ms ease;
+ -o-transition: all 300ms ease;
+ transition: all 300ms ease;
+
+
+
+}
+.post_subscribe_form{
+	float:right;
+}
 
 /* Disqus */
 

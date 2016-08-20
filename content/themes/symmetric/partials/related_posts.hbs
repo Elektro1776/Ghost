@@ -1,14 +1,14 @@
 {{#get "posts" limit="4" }}
 {{#foreach posts columns="2"}}
-  	<article class=" {{post_class}} {{#if @rowStart}} col-lg-6 col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-xs-12{{/if}}" style=" margin-bottom:10px;">
+  	<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-lg-12 col-md-12 col-xs-12{{/if}}" style=" margin-bottom:10px;">
       {{#if image}}
-        <a href="{{url}}" class="thumb hover-effect">
-          <img src="{{image}}" style="">
+        <a href="{{url}}" class=" local thumb hover-effect">
+          <img src="{{image}}" class="" style="">
         </a>
       {{else}}
         {{content words="0"}}
       {{/if}}
-    <h4 class="title"><a href="{{url}}">{{title}}</a></h4>
+    <h4 class="title "><a href="{{url}}">{{title}}</a></h4>
     <div class="meta">
       {{#if tags}}
       <div class="tags">
@@ -24,8 +24,12 @@
       </div>
 
         </div>
-    <div class="post-excerpt" style="line-height:22px; color:#282828; font-weight:500;">
-      {{excerpt words="20"}}...
+        <div class="row fade-out">
+
+                <div class="text">{{content}}</div>
+                  <p class="read-more"><a class="btn" href="#">Read More</a></p>
+
+
 
       <div class="clear"></div>
     </div>
