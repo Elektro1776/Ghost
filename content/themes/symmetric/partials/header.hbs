@@ -112,9 +112,9 @@
             <div class="" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" style="width:100%;">
                   <div class="row">
-                <div class="container col-sm-2 col-xs-4" style="display:inline-flex;margin-top:25px;">
-                   <li class="nav-dropdown col-xs-5 " style="border:1px solid black; padding-left:5px">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <div class="container col-sm-2 col-xs-4" style="display:inline-flex;margin-top:25px;z-index:10;">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                   	<li class="nav-dropdown col-xs-5 " style="border:1px solid black; padding-left:5px">
                         <div class="info-circle">
                         <i class="fa fa-info" style="position:relative;"></i>
                       </div>
@@ -144,7 +144,7 @@
               </div>
 
         	<div id="addThis"class=" hidden-sm hidden-xs container col-xs-5" ></div>
-            <div class="mobile-logo_2 container col-lg-3 hidden-sm hidden-xs col-lg-offset-2">
+            <div class="mobile-logo_2 container col-lg-3 hidden-sm hidden-xs col-lg-offset-2" style="z-index:1;">
               <a href="{{@blog.url}}">
                 <img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
             </div>
