@@ -191,12 +191,9 @@
               .scroll(function() {
                 if ($(window).scrollTop() + $(window).height() ==
                     $(document).height()) {
-                  $.get(ghost.url.api('posts',
-                                      {
-                                        limit : 4,
-                                        filter : 'id:-{{id}}',
-                                        include : "author"
-                                      }))
+                  $.get(ghost.url.api(
+                            'posts',
+                            {limit : 4, filter : -'id', include : "author"}))
                       .done(function(data) {
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
