@@ -4,58 +4,93 @@
   /* Dom Loaded */
   $(document)
       .ready(function($) {
-        var $window = $(window), ath = $('#addThis');
+        var $window = $(window), ath = $('#addThis'),
+            athScroll = $('#addThis_scroll');
 
         setTimeout(function() {
-
-          ath.addClass("addthis_sharing_toolbox col-lg-2 ")
+          // 1st set of addthis buttons
+          ath.addClass("addthis_sharing_toolbox pull-left ")
               .css({
-                "display" : "inline",
-                "visibility" : "hidden",
-                "margin-top" : "5px",
-                "max-width" : "175px"
+                "display" : "inline-flex",
+                "visibility" : "visible",
+                "margin-top" : "20px",
+                "padding" : "0px",
+
               });
           var x = $('#atstbx a span'), y = $('#atstbx a span svg'),
               z = $('#atstbx .at-share-btn');
           z.css({'margin' : '10px'});
           y.css({"height" : "40px", "width" : "40px"});
           x.css({
-            "height" : "48px",
-            "width" : "48px",
+            "height" : "30px",
+            "width" : "30px",
             "text-align" : "center",
             "vertical-align" : "middle",
             "padding-top" : "3px"
           });
-        }, 500);
+          $('.at-svc-stumbleupon .at-icon-wrapper').css({'display' : 'none'});
+          // 2nd set Add this Buttons on Scroll
+          athScroll.addClass("col-xs-5 ")
+              .css({
+                "display" : "inline-flex",
 
+                "margin-top" : "20px",
+                "padding" : "0px",
+
+              });
+          var x2 = $('#atstbx2 a span'), y2 = $('#atstbx2 a span svg'),
+              z2 = $('#atstbx2 .at-share-btn');
+          z2.css({'margin' : '10px'});
+          y2.css({"height" : "40px", "width" : "40px"});
+          x2.css({
+            "height" : "30px",
+            "width" : "30px",
+            "text-align" : "center",
+            "vertical-align" : "middle",
+            "padding-top" : "3px"
+          });
+          $('.at-svc-stumbleupon .at-icon-wrapper').css({'display' : 'none'});
+
+        }, 500);
+        /*  if ($window.width() <= 768) {
+            $('#atstbx')
+                .children()
+                .hasClass('at-svc-stumbleupon')
+                .css({'display' : 'none'});
+            }
+            */
         // Mobile switch of nav-bar to addthis buttons
 
-        var $mobile_logo = $(".mobile-logo"), addThis = $('#addwrap'),
-            $mobileLogoD = $('.mobile-logo_2'),
-            $logo_words = $(".mobile-logo-words"), $follow = $("#mobileFollow");
-        var post_header = parseInt($('.meta').offset().top, 10);
-        var home_header = parseInt($('.mobile-logo').offset().top, 10);
+        var $trending = $(".trending"), // addThis = $('#addwrap'),
+                                        //$mobileLogoD = $('.mobile-logo_3'),
+            $scrollNav = $('.new_nav_scroll'),
+            //  $logo_words = $(".mobile-logo-words"), $follow =
+            //  $("#mobileFollow");
+            post_header = parseInt($('.nav-wrap').offset().top, 10);
+
+        // var home_header = parseInt($('.mobile-logo').offset().top, 10);
 
         $window.scroll(function() {
           // check if we are on the post page
-          var scroll_top = $(window).scrollTop();
+          var scroll_top = $(this).scrollTop();
+          console.log(scroll_top);
           if ($('body').hasClass("post-template")) {
             if (scroll_top >= post_header) {
-              addThis.css({'visibility' : 'visible'}).sticky({zIndex : 6});
-              ath.css({'visibility' : 'visible'}).sticky({zIndex : 7});
-              $mobile_logo.css({'visibility' : 'hidden'});
-              $logo_words.css({'visibility' : 'hidden'});
-              $mobileLogoD.css({'visibility' : 'visible'});
-              $follow.css({'display' : 'block'});
+              //  addThis.css({'visibility' : 'visible'}).sticky({zIndex : 6});
+              //  ath.css({'visibility' : 'visible'}).sticky({zIndex : 7});
+              $trending.css({'visibility' : 'visible'});
+              //$logo_words.css({'visibility' : 'hidden'});
+              //$mobileLogoD.css({'visibility' : 'hidden'});
+              $scrollNav.css({'visibility' : 'visible'});
             }
           }
-          if (scroll_top < post_header) {
-            $mobile_logo.css({'visibility' : 'visible'});
-            $logo_words.css({'visibility' : 'visible'});
-            addThis.css({'visibility' : 'hidden'});
-            ath.css({'visibility' : 'hidden'});
-            $mobileLogoD.css({'visibility' : 'hidden'});
-            $follow.css({'display' : 'none'});
+          if (scroll_top <= post_header) {
+            $trending.css({'visibility' : 'hidden'});
+            //  $logo_words.css({'visibility' : 'visible'});
+            // addThis.css({'visibility' : 'hidden'});
+            // ath.css({'visibility' : 'hidden'});
+            //$mobileLogoD.css({'visibility' : 'visible'});
+            $scrollNav.css({'visibility' : 'hidden'});
           }
           if ($('body').hasClass('home-template') &&
               scroll_top >= home_header) {
@@ -63,7 +98,17 @@
             $logo_words.css({'visibility' : 'hidden'});
           }
         });
+        if ($('body').hasClass('post-template')) {
+          var menuWrapper = $('.scroll-nav');
+          if ($(document).width() > 767) {
+            menuWrapper.sticky({
+              zIndex : 1000,
 
+            });
+          } else {
+            menuWrapper.unstick();
+          }
+        }
         $('#ad_3').affix({offset : {top : 200}}).css("top", "70px");
 
         $('.row-wrap').siblings().wrapAll("<div class='row' /div>");
@@ -108,72 +153,61 @@
         // END OF READ MORE BUTTON FADE OUT
 
         // INFINITE SCROLL
-        var page = 2;
-        var url_blog = window.location;
-        $(window)
-            .scroll(function() {
-              if ($(window).scrollTop() + $(window).height() ==
-                  $(document).height()) {
-                $
-                    .get(ghost.url.api(
-                        'posts',
-                        {limit : 4, filter : 'id:-{{id}}', include : "author"}))
-                    .done(function(data) {
-                      $.each(data.posts,
-                             function(i, post) { insertPost(post); });
-                      console.log('posts', data.posts);
-                    })
-                    .fail(function(err) { console.log(err); });
+        // How we display the new posts  once the new posts are recieved
 
-                function insertPost(postData) {
-                  var postInfo =
-                      '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
-                                  <a href="' +
-                      postData.url +
-                      '" class="local thumb hover-effect"><img src="' +
-                      postData.image + '"></a>\
-                      <h4 class="title"><a href="' +
-                      postData.url + '">' + postData.title + '</a></h4>\
-                      <div class="meta">\
-                      <div class="tags"></div>\
-                      <i class="fa fa-circle"></i><span class="author">Heart Centered Rebalancing</span>\
-                      </article>\
-                                  ';
+        function insertPost(postData) {
+          var timeago = moment(postData.published_at).startOf('hour').fromNow();
+          console.log(timeago);
 
-                  $('article').last().after(postInfo);
+          var postInfo =
+              '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
+                          <a href="' +
+              postData.url + '" class="local thumb hover-effect"><img src="' +
+              postData.image + '"></a>\
+              <h2 class="title"><a href="' +
+              postData.url + '">' + postData.title + '</a></h2>\
+              <div class="meta">\
+              <div class="tags"></div>\
+              <i class="fa fa-circle circle" ></i><span class="author">Heart Centered Rebalancing</span>\
+              <timeclass="post-date" datetime="' +
+              timeago + '">  <i class="fa fa-clock-o"></i>' + timeago +
+              '</time>\
+              <div class="row fade-out" style=margin-left:0;>\
+              <div class="text">' +
+              postData.html +
+              '</div><p class="read-more"><a class="btn" href="#">"Read More"</a></p>\
+              <div class="clear"</div\
+              </div>\
+              </article>\
+                          ';
+          // Where we drop our new post data onto the page
+          $('article').last().after(postInfo);
+        }
+        // Are we on the post page? if so scroll the bitch
+        // TODO figure out how to stop the infinte scroll after 20 articles are
+        // loaded
+        if ($('body').hasClass('post-template')) {
+          $(window)
+              .scroll(function() {
+                if ($(window).scrollTop() + $(window).height() ==
+                    $(document).height()) {
+                  $.get(ghost.url.api('posts',
+                                      {
+                                        limit : 4,
+                                        filter : 'id:-{{id}}',
+                                        include : "author"
+                                      }))
+                      .done(function(data) {
+                        $.each(data.posts,
+                               function(i, post) { insertPost(post); });
+                        // console.log('posts', data.posts);
+                      })
+                      .fail(function(err) { console.log(err); });
                 }
-                // var content = $('.content').children();
-                /*
-                                $.get((url_blog + '/page/' + page),
-                   function(data) {
-                                  if (page <= max_pages) {
-                                    var content = $('' + data + '');
-                                    $('.content').append(content.find('.content').children());
-                                    page = page + 1;
-                                  }
-                                });*/
-              }
-            });
-        // END INFINITE SCROLL
-        // Update window.history
-        /*  $.fn.inView = function() {
-          // Window Object
-          var win = $(window);
-          // Object to Check
-          obj = $(this);
-          // console.log(obj);
-          // the top Scroll Position in the page
-          var scrollPosition = win.scrollTop();
-          // the end of the visible area in the page, starting from the scroll
-          // position
-          var visibleArea = win.scrollTop() + win.height();
-          // the end of the object to check
-          var objEndPos = (obj.offset().top + obj.outerHeight());
-          return (visibleArea >= objEndPos && scrollPosition <= objEndPos
-                      ? true
-                      : false);
-        };
-*/ $.fn.isOnScreen = function() {
+              });
+        }
+
+        $.fn.isOnScreen = function() {
 
           var win = $(window);
 
@@ -190,6 +224,10 @@
                 viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 
         };
+        /*This is how we update the URL on our related articles
+        @TODO need to set a conditonal to stop firing our replaceState method
+        @TODO need to figure out how to set up a track page event
+              for google analytics to count them as page views */
         $(window)
             .scroll(function(e) {
 
@@ -202,26 +240,22 @@
                       return e.preventDefault();
                     }
 
-                    console.log($(this).isOnScreen());
                   });
-              //$(".local").addClass("active");
-              // window.history.pushState("state", "title",
-              //           $(this).attr('href'));
-              //  console.log($(this));
-
-              // if ($(".local:eq(1)").inView() == false) {
-              //$(".local").removeClass("active");
-              //  window.history.pushState("state", "title",
-              //   $('.active:eq(2)').attr('href'));
-
-              //}
 
             });
-        if ($('body').hasClass('home-template')) {
-          if ($(document).width() > 767) {
-            $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
-          }
-        }
+        // If you want to paginate a whole page look down here
+
+        /*
+         var content = $('.content').children();
+        $.get((url_blog + '/page/' + page),
+        function(data) {
+        if (page <= max_pages) {
+        var content = $('' + data + '');
+        $('.content').append(content.find('.content').children());
+        page = page + 1;
+      }
+    });*/
+
         /* Global
           */
         $('#header div.menu-mobile')

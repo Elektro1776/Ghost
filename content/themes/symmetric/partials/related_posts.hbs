@@ -1,6 +1,6 @@
 {{#get "posts" limit="4" }}
 {{#foreach posts columns="2"}}
-  	<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-lg-12 col-md-12 col-xs-12{{/if}}" style=" margin-bottom:10px;">
+<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-lg-12 col-md-12 col-xs-12{{/if}}" style=" margin-bottom:10px;">
       {{#if image}}
         <a href="{{url}}" class=" local thumb hover-effect">
           <img src="{{image}}" class="" style="">
@@ -8,31 +8,24 @@
       {{else}}
         {{content words="0"}}
       {{/if}}
-    <h4 class="title "><a href="{{url}}">{{title}}</a></h4>
-    <div class="meta">
+    <h2 class="title "><a href="{{url}}">{{title}}</a></h2>
+  <div class="meta">
       {{#if tags}}
       <div class="tags">
         {{tags separator=""}}
       </div>
       {{/if}}
-      <div class="">
-        <i class="fa fa-circle"></i>
+    <i class="fa fa-circle circle"></i>
       <span class="author">  Heart Centered Rebalancing</span>
-      <time datetime="{{date format="YYYY-MM-DD"}}">
-        <i class="fa fa-clock-o"></i> {{date published_at timeago="true"}}</time>
-
-      </div>
-
-        </div>
-        <div class="row fade-out">
-
-                <div class="text">{{content}}</div>
-                  <p class="read-more"><a class="btn" href="#">Read More</a></p>
-
-
-
-      <div class="clear"></div>
+        <time datetime="{{date format="YYYY-MM-DD"}}">
+          <i class="fa fa-clock-o"></i> {{date published_at timeago="true"}}
+        </time>
     </div>
+        <div class="row fade-out" style="margin-left:0;">
+            <div class="text">{{content}}</div>
+                <p class="read-more"><a class="btn" href="#">Read More</a></p>
+              <div class="clear"></div>
+        </div>
   </article>
   {{/foreach}}
 {{/get}}

@@ -2,17 +2,18 @@
 
 <header id="header" style="width:100%;">
 <div class="row">
+  <!--
 	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2  ">
 		<div class=" hidden-lg hidden-md visible-sm visible-xs">
 			<i class="fa fa-info-circle" style="color:black"></i>
 		</div>
 	</div>
-	<div class="col-lg-1 col-md-1 col-sm-1  col-xs-2">
+<div class="col-lg-1 col-md-1 col-sm-1  col-xs-2">
 		<div class="menu-mobile hidden-lg hidden-md visible-sm visible-xs">
 			<i class="fa fa-bars" style="color:black"></i>
 		</div>
 </div>
-<!-- <span id="overlay_text" style="position: relative; top: 0px; z-index: 3;">
+ <span id="overlay_text" style="position: relative; top: 0px; z-index: 3;">
 	<div id="mobileFollow" style="display:none; left:70px;" class="col-md-6 col-sm-6 col-xs-5 col-sm-offset-0 col-xs-offset-2 showfm">
 		<div class="panel panel-default" style="background:none;box-shadow: 0 0px 0px rgba(0,0,0,.0); border:none;">
 			<div class="panel-heading" role="tab" id="headingTwo" style="background-color:#DB2BCC;background-image:none; border-radius:25px;">
@@ -43,18 +44,20 @@
 
 		<div class="container-fluid">
 			<div class="row visible-lg visible-md hidden-sm hidden-xs">
-				<div class="col-lg-3 col-md-3 ">
+				<!--<div class="col-lg-3 col-md-3 ">
 
 			<a href="{{@blog.url}}">
 				<img src="{{asset "images/hcr_large.png"}}"  style="display:block" alt="Heart Centered Rebalancing" /></a>
-			</div>
+			</div> -->
 
-					<div id="ad_1" class=" col-lg-7 col-md-8 col-sm-7" style="padding-left:50px;">
+					<div id="ad_1" class=" col-lg-7 col-lg-offset-2 col-md-6 col-sm-7" style="padding-left:50px;">
+<!--------------------- Ad code for top banner should go here ----------------- -->
 						<img src="{{asset "images/ad_banner728x90.jpg"}}" />
 					</div>
 			</div>
 		</div>
 
+    <!--
 			<div class=" col-xs-2 col-xs-offset-2 " style="padding: 0px 0px 0px;">
 				<div class="mobile-logo hidden-lg hidden-md visible-sm visible-xs">
 					<a href="{{@blog.url}}">
@@ -73,42 +76,178 @@
 									<img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
 							</div>
 						</div>
-				<div id="addThis"class=" hidden-xs hidden-sm" ></div>
+        <div id="addThis"class=" hidden-xs hidden-sm" ></div>
 		</div>
 	</div>
-
-					<!--
-
-				</div>
-			</div>
-
-
-		</div>
 -->
 
-
-
-	<!-- end: .top -->
+		<!-- end: .top -->
 
 	<!--<h2 class="blog-description">{{@blog.description}}</h2>-->
-	<div class="container ">
-
 	<!-- start: .menu-wrapper -->
-	<div class="menu-wrapper col-lg-12 col-md-12 col-sm-3" style="background-color:#fff;" >
-		<!-- start: .main-nav -->
-		<nav class="main-nav grid-container grid-parent symmetric_nav" role="navigation" >
+  <div class="nav-wrap">
 
 
+<div  class="container-fluid post-nav">
+			<!-- start: .main-nav
+			<nav class="main-nav grid-container grid-parent symmetric_nav" role="navigation" >
+			{{!-- navigation --}}
+			</nav>
+    -->
+      <nav class=" new_nav navbar-default navbar-static-top">
+        <div class="container-fluid">
+    <!--
+    Brand and toggle get grouped for better mobile display
+    <div class="navbar-header">
+      <button type="button" class="" data-toggle="" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Brand</a>
+    </div>
+  -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" style="width:100%;">
+                  <div class="row">
+                <div class="container col-sm-2 col-xs-4" style="display:inline-flex;margin-top:25px;">
+                   <li class="nav-dropdown col-xs-5 " style="border:1px solid black; padding-left:5px">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <div class="info-circle">
+                        <i class="fa fa-info" style="position:relative;"></i>
+                      </div>
+                	   </a>
+                  <ul class="nav-dropdown-menu dropdown-menu">
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/about-us">About Us</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/contact-us/">Contact Us</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/advertising-commitment/">Advertising Commitment</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/privacy-policy/">Privacy Policy</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/dmca-removal/">DMCA / Removal</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/privacy-policy/">Privacy Policy</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/terms-of-service">Terms of Service</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/disclaimer/">Disclaimer</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/user-agreement/">User Agreement</a></li>
+                    <li class="extra-padding"><a href="http://dev.groupxondemand.com/why-cookies/">We Use Cookies</a></li>
 
-			{{navigation}}
+                  </ul>
+                </li>
+                <li class="nav-dropdown col-xs-6 " style="border:1px solid black; ;padding-top:5px;">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-bars" style="position:relative;"></i>
+                	</a>
+                  <ul class="nav-dropdown-menu dropdown-menu">
+                  {{navigation}}
+                  </ul>
+                </li>
+              </div>
+
+        	<div id="addThis"class=" hidden-sm hidden-xs container col-xs-5" ></div>
+            <div class="mobile-logo_2 container col-lg-3 hidden-sm hidden-xs col-lg-offset-2">
+              <a href="{{@blog.url}}">
+                <img src="{{asset "images/hcrlogo-mobile-1.png"}}"  alt="Heart Centered Rebalancing" /></a>
+            </div>
+          <div class="mobile-logo-words  col-lg-1 " style="padding-top:20px;">
+    					<a href="{{@blog.url}}">
+    						<img src="{{asset "images/hcrlogo-mobile-words.png"}}"  alt="Heart Centered Rebalancing" /></a>
+    			</div>
+            <div class="trending container col-xs-3 nav navbar-nav pull-right " style="padding:0px;margin:0px;">
+            <li ><a href="#">Trending</a></li>
+            </div>
+
+          </div>
+      </ul>
 
 
+    </div><!-- /.navbar-collapse -->
 
-		</nav>
-	</div>
-	</div>
-		<!-- end: .main-nav -->
-	</div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+</div>
+<!-- start scroll-nav -->
+<span class="overlay " style="position:absoulte;">
+  <div  class="container-fluid scroll-nav "style="visibility:hidden;background-color:#fff; margin-bottom:50px;" >
+    <!-- start: .main-nav
+    <nav class="main-nav grid-container grid-parent symmetric_nav" role="navigation" >
+    {{!-- navigation --}}
+  </nav>
+-->
+<nav class=" new_nav_scroll navbar-default ">
+  <div class="container-fluid">
+    <!--
+    Brand and toggle get grouped for better mobile display
+    <div class="navbar-header">
+    <button type="button" class="" data-toggle="" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <!--<a class="navbar-brand" href="#">Brand</a>
+</div>
+-->
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav" style="width:100%;">
+    <div class="row">
+      <div class="container col-sm-2 col-xs-4" style="display:inline-flex;margin-top:25px;">
+        <li class="nav-dropdown col-xs-5 " style="border:1px solid black; padding-left:5px">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <div class="info-circle">
+              <i class="fa fa-info" style="position:relative;"></i>
+            </div>
+          </a>
+          <ul class="nav-dropdown-menu dropdown-menu">
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/about-us">About Us</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/contact-us/">Contact Us</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/advertising-commitment/">Advertising Commitment</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/privacy-policy/">Privacy Policy</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/dmca-removal/">DMCA / Removal</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/privacy-policy/">Privacy Policy</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/terms-of-service">Terms of Service</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/disclaimer/">Disclaimer</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/user-agreement/">User Agreement</a></li>
+            <li class="extra-padding"><a href="http://dev.groupxondemand.com/why-cookies/">We Use Cookies</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-dropdown col-xs-6 " style="border:1px solid black; ;padding-top:5px;">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-bars" style="position:relative;"></i>
+          </a>
+          <ul class="nav-dropdown-menu dropdown-menu">
+            {{navigation}}
+          </ul>
+        </li>
+      </div>
+
+      <div id="addThis_scroll"class=" addthis_sharing_toolbox container " ></div>
+
+          <div class="trending container col-xs-3 nav navbar-nav pull-right " style="padding:0px;margin:0px;">
+            <li ><a href="#">Trending</a></li>
+          </div>
+
+        </div>
+      </ul>
+
+
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+</div>
+</div>
+<!-- end: .main-nav -->
+</div>
+</div>
+		<!-- end: .scroll-nav -->
+
+
 
 
 	<!-- end: .menu-wrapper -->

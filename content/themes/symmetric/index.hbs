@@ -10,10 +10,10 @@
     <div class="col-lg-12 col-sm-12 col-xs-12">
     {{#foreach posts limit="7" columns="2"}}
               {{#if @first}}
-                  <div class="container">
+                  <div class="container featured">
                       <div class="row featured-row">
 
-                          <article class=" {{post_class}} col-lg-8 col-md-8 col-sm-12 col-xs-12"  style="height:auto;padding-right:65px;">
+                          <article class=" {{post_class}} mainImg col-lg-8 col-md-8 col-sm-12 col-xs-12"  >
                               <header>
                                   <div class="row">
                                   {{#if image}}
@@ -47,20 +47,16 @@
                               </div>
 
                           </div>
-                          <div class="col-lg-6 col-md-6 ">
-
-                          </div>
-
-            </div>
-                      <div class="clear"></div>
-
-
-
+                        </div>
+                <div class="clear"></div>
           </div>
     </div>
+        <div class="container">
+
+
           <div class="  col-md-8" style="margin-top: 50px;">
               {{else}}
-        <article class=" {{post_class}} {{#if @rowStart}} col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-12{{/if}}" style="height:auto;">
+        <article class=" {{post_class}}  {{#if @rowStart}} col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-12{{/if}}" style="height:auto;">
           <header>
             {{#if image}}
               <a href="{{url}}" class="thumb hover-effect">
@@ -73,7 +69,8 @@
               <div class="alignleft">
 
                 <h2 class="title" ><a href="{{url}}">{{title}}</a></h2>
-              
+                <i class="fa fa-circle circle"></i>
+                  <span class="author">  Heart Centered Rebalancing</span>
                 <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i>{{date published_at timeago="true"}}</time>
               </div>
               <div class="clear"></div>
@@ -95,15 +92,15 @@
 
     {{/foreach}}
           </div>
-
           <div class="col-md-4">
-              <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 0;">
+              <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 40px;">
                   <div id="ad_4" class="">
                       <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
                   </div>
               </div>
           </div>
       </div>
+    </div>
 
 
 
