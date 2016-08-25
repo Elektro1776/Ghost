@@ -207,7 +207,7 @@ article.mainImg{
 	#ad_1>img{display:none!important;}
 
 	.container{max-width: 480px;}
-	.mobile-logo-words{margin-top:5%}
+
 /*	#single div.main-image.cover {
 			height: 300px;
 			width: 420px;
@@ -246,6 +246,9 @@ h1.title{
 /* SmartPhones and small tablets */
 @media screen and (max-device-width: 480px){
 /*	.main-image{height:250px!important;}*/
+#addThis_scroll{margin-top:10px!important;}
+#info_nav_Wrap_1{float:right!important;margin-top:0px!important;}
+#info_nav_Wrap{margin-top:15px!important;}
 }
 @media screen and (max-width: 480px) {
 	body.post-template div.text{

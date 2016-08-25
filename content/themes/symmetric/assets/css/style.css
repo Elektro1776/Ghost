@@ -229,10 +229,9 @@ body.cover #single div.main-image .boxed.cover{
 
 /* Top page Loader */
 /* add this button styling */
-#atstbx .at-share-btn span{border-radius:25px;}
+.addthis_sharing_toolbox{clear:none!important;}
+#atstbx.at-share-tbx-element .at-share-btn{border-radius:50%!important;}
 #atstbx .at-svc-stumbleupon span{display:none;}
-#atstbx2 .at-share-btn span{border-radius:25px;}
-#atstbx2 .at-svc-stumbleupon span{display:none;}
 /*Follow Button and Icons Styling*/
 /* Hover DropDown social icons ---------------------------------------------------------*/
 /* Dropdown Button */

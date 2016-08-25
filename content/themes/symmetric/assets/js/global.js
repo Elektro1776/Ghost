@@ -15,6 +15,7 @@
                 "visibility" : "visible",
                 "margin-top" : "20px",
                 "padding" : "0px",
+                "clear" : "none"
 
               });
           var x = $('#atstbx a span'), y = $('#atstbx a span svg'),
@@ -33,7 +34,7 @@
           athScroll.addClass("col-xs-5 ")
               .css({
                 "display" : "inline-flex",
-
+                "clear" : "none",
                 "margin-top" : "20px",
                 "padding" : "0px",
 
@@ -92,15 +93,15 @@
             //$mobileLogoD.css({'visibility' : 'visible'});
             $scrollNav.css({'visibility' : 'hidden'});
           }
-          if ($('body').hasClass('home-template') &&
+          /*if ($('body').hasClass('home-template') &&
               scroll_top >= home_header) {
             $mobile_logo.css({'visibility' : 'hidden'});
             $logo_words.css({'visibility' : 'hidden'});
-          }
+          }*/
         });
         if ($('body').hasClass('post-template')) {
           var menuWrapper = $('.scroll-nav');
-          if ($(document).width() > 767) {
+          if ($(document).width() < 1440) {
             menuWrapper.sticky({
               zIndex : 1000,
 
@@ -133,8 +134,8 @@
               // measure how tall inside should be by adding together heights of
               // all inside paragraphs (except read-more paragraph)
               $ps.each(function() { totalHeight += $(this).outerHeight(); });
-              console.log($(this).outerHeight());
-              console.log($ps);
+              // console.log($(this).outerHeight());
+              // console.log($ps);
               $up.css({
                    // Set height to prevent instant jumpdown when max height is
                    // removed
@@ -157,7 +158,7 @@
 
         function insertPost(postData) {
           var timeago = moment(postData.published_at).startOf('hour').fromNow();
-          console.log(timeago);
+          // console.log(timeago);
 
           var postInfo =
               '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
@@ -191,9 +192,10 @@
               .scroll(function() {
                 if ($(window).scrollTop() + $(window).height() ==
                     $(document).height()) {
-                  $.get(ghost.url.api(
-                            'posts',
-                            {limit : 4, filter : -'id', include : "author"}))
+                  $.getJSON(
+                       ghost.url.api(
+                           'posts',
+                           {limit : 4, filter : -'id', include : "author"}))
                       .done(function(data) {
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
