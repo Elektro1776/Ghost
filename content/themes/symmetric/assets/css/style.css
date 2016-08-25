@@ -231,6 +231,8 @@ body.cover #single div.main-image .boxed.cover{
 /* add this button styling */
 .addthis_sharing_toolbox{clear:none!important;}
 #atstbx.at-share-tbx-element .at-share-btn{border-radius:50%!important;}
+#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{width:42px!important;height:42px!important;line-height:42px!important;}
+#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{width:42px!important;height:42px!important;}
 #atstbx .at-svc-stumbleupon span{display:none;}
 /*Follow Button and Icons Styling*/
 /* Hover DropDown social icons ---------------------------------------------------------*/
@@ -470,7 +472,7 @@ text-align: center;
 margin: 0; padding: 30px 0;
 
 /* "transparent" only works here because == rgba(0,0,0,0) */
-background-image: linear-gradient(to bottom, transparent, #d2baba);
+background-image: linear-gradient(to bottom, transparent, #fff);
 }
 
 

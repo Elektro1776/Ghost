@@ -35,7 +35,7 @@
               .css({
                 "display" : "inline-flex",
                 "clear" : "none",
-                "margin-top" : "20px",
+                "margin-top" : "15px",
                 "padding" : "0px",
 
               });

@@ -247,8 +247,10 @@ h1.title{
 @media screen and (max-device-width: 480px){
 /*	.main-image{height:250px!important;}*/
 #addThis_scroll{margin-top:10px!important;}
-#info_nav_Wrap_1{float:right!important;margin-top:0px!important;}
+#info_nav_Wrap_1{float:right!important;padding-left:1px;padding-right:0;}
 #info_nav_Wrap{margin-top:15px!important;}
+.mobile-logo-words {float:right;}
+.main{margin-top:0;}
 }
 @media screen and (max-width: 480px) {
 	body.post-template div.text{
@@ -554,7 +556,15 @@ and (orientation: portrait) {
 			.col-xs-6{ width:48%;}
 }
 @media screen and (max-width: 767px){
-
+	.navbar-nav .open .dropdown-menu {
+	    position: fixed;
+	    float: left;
+	    width: auto;
+	    margin-top: 100px;
+	    background-color: #fff;
+	    border: 0;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
 	/* @group Global Styles */
 
 	.section{ margin-top: 30px; }

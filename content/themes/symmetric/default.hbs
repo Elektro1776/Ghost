@@ -45,20 +45,8 @@
 {{ghost_head}}
 <script type="text/javascript" src="{{@blog.url}}/config.js"></script>
 <script src="https://use.fontawesome.com/568e40764f.js"></script>
-<script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
-(function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
-var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') +
-'//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
-})();
-</script>
+
+
 <script type='text/javascript'>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
@@ -74,7 +62,7 @@ node.parentNode.insertBefore(gads, node);
 })();
 </script>
 </head>
-<body class="enable_animations {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}}>
+<body class=" {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}}>
 
 	<!-- start: #wrapper -->
 
@@ -113,7 +101,7 @@ node.parentNode.insertBefore(gads, node);
 	<script type="text/javascript" src="{{asset "js/jquery-migrate-1.2.1.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/jquery.isOnScreen.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/pace.min.js"}}"></script>
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/jquery.sticky.js"}}"></script>

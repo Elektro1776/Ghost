@@ -203,6 +203,7 @@ section.widget ul li:last-of-type{ padding-bottom: 0 !important; }
 	padding:2px;
 
 }
+.nav-dropdown-menu{position:fixed;top:0;left:660px;}
 .fa-info{font-size:16px!important;}
 /* Tag Cloud */
 
