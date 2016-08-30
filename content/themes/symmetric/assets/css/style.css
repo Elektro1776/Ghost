@@ -229,11 +229,25 @@ body.cover #single div.main-image .boxed.cover{
 
 /* Top page Loader */
 /* add this button styling */
-.addthis_sharing_toolbox{clear:none!important;}
-#atstbx.at-share-tbx-element .at-share-btn{border-radius:50%!important;}
-#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{width:42px!important;height:42px!important;line-height:42px!important;}
+.addthis_sharing_toolbox{clear:none!important;padding-left:1px;}
+.at-share-tbx-element .at-share-btn{margin-right:5px!important;}
+#atstbx.at-share-tbx-element .at-share-btn{border-radius:40px!important;}
+#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{width:42px!important;height:42px!important;line-height:42px!important;float:left!important;}
 #atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{width:42px!important;height:42px!important;}
 #atstbx .at-svc-stumbleupon span{display:none;}
+.at-share-btn-elements .at-svc-facebook {
+    width: 210px !important;
+    position: relative;}
+.at-share-btn-elements .at-svc-facebook:after {
+	position: absolute;
+	content: "Share!";
+	font-size: 13px;
+	top: 50%;
+	left:40%;
+	color: #ffffff;
+	font-weight: 500;
+	text-transform: uppercase;
+}
 /*Follow Button and Icons Styling*/
 /* Hover DropDown social icons ---------------------------------------------------------*/
 /* Dropdown Button */
@@ -269,6 +283,10 @@ border-radius:25px;
 }
 .dropdown ul:hover {
  background:transparent;
+	 display:inline-flex;
+}
+.dropdown li:hover {
+ background-color:#DB2BCC;
 	 display:inline-flex;
 }
 /* Links inside the dropdown */
@@ -858,7 +876,7 @@ article.mainImg{padding-right:65px;height:auto;}
 div.articles article a.thumb img{ display: block; }
 div.articles article div.meta{ margin: 15px 0 10px; }
 div.articles article h4.title{ font-size: 24px; margin-bottom: 13px; line-height: 1.2; font-weight:700; font-family: Playfair Dispay;}
-div.articles article div.post-excerpt{ margin-bottom: 13px; font-size: 16px; }
+div.articles article div.post-excerpt{ margin-bottom: 13px; font-size: 15px; }
 div.articles article iframe{ max-height: 200px; width: 100%; }
 div.articles article a.share-button{ margin-left: 5px; }
 

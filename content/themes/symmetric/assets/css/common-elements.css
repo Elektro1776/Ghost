@@ -186,6 +186,8 @@ section.widget ul li a{ }
 section.widget ul li a:hover, section.widget ul li.current-menu-item a{ color: #1ABC9C; }
 section.widget > ul > li, section.widget_nav_menu ul.menu > li{ padding-bottom: 15px; }
 section.widget ul li:last-of-type{ padding-bottom: 0 !important; }
+.nav-extra-padding:hover{background-color: #db2bcc;}
+.extra-padding:hover{background-color: #db2bcc;}
 .main-nav-menu{padding:0;}
 .nav-extra-padding{padding:10px;}
 .trending{border: 1px solid #555;}
@@ -195,8 +197,8 @@ section.widget ul li:last-of-type{ padding-bottom: 0 !important; }
 .sticky-wrapper{height:0!important;}
 .info-circle{
 	position:static;
-	width:25px;
-	height:25px;
+	width:22px;
+	height:22px;
 	background:transparent;
 	border:2px solid #555;
 	border-radius:50%;

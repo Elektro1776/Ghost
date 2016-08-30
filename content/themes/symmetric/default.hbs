@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 {{! Page Meta }}
-<title>{{meta_title}}</title>
+<title>{{meta_title}} {{log meta_title}}</title>
 <meta name="description" content="{{meta_description}}" />
 
 {{! Mobile Support }}
@@ -63,7 +63,14 @@ node.parentNode.insertBefore(gads, node);
 </script>
 </head>
 <body class=" {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}}>
-
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1640664716197646";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- start: #wrapper -->
 
 <div class="container-fluid">
@@ -99,7 +106,7 @@ node.parentNode.insertBefore(gads, node);
 	</script>
 
 	<script type="text/javascript" src="{{asset "js/jquery-migrate-1.2.1.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/jquery.isOnScreen.js"}}"></script>
+
 	<script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
 
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

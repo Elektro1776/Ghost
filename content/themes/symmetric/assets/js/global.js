@@ -31,13 +31,11 @@
           });
           $('.at-svc-stumbleupon .at-icon-wrapper').css({'display' : 'none'});
           // 2nd set Add this Buttons on Scroll
-          athScroll.addClass("col-xs-5 ")
+          athScroll.addClass("col-xs-7 col-lg-3 col-lg-offset-3")
               .css({
                 "display" : "inline-flex",
                 "clear" : "none",
-                "margin-top" : "15px",
-                "padding" : "0px",
-
+                "margin-top" : "10px"
               });
           var x2 = $('#atstbx2 a span'), y2 = $('#atstbx2 a span svg'),
               z2 = $('#atstbx2 .at-share-btn');
@@ -74,7 +72,7 @@
         $window.scroll(function() {
           // check if we are on the post page
           var scroll_top = $(this).scrollTop();
-          console.log(scroll_top);
+          //  console.log(scroll_top);
           if ($('body').hasClass("post-template")) {
             if (scroll_top >= post_header) {
               //  addThis.css({'visibility' : 'visible'}).sticky({zIndex : 6});
@@ -191,11 +189,10 @@
           $(window)
               .scroll(function() {
                 if ($(window).scrollTop() + $(window).height() ==
-                    $(document).height()) {
+                        $(document).height() &&
+                    $('.post').length <= 20) {
                   $.getJSON(
-                       ghost.url.api(
-                           'posts',
-                           {limit : 4, filter : -'id', include : "author"}))
+                       ghost.url.api('posts', {limit : 4, include : "author"}))
                       .done(function(data) {
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
@@ -203,9 +200,10 @@
                       })
                       .fail(function(err) { console.log(err); });
                 }
+                console.log($('.post').length);
               });
         }
-
+        console.log($('.post').length + "Im the initial");
         $.fn.isOnScreen = function() {
 
           var win = $(window);
@@ -236,6 +234,10 @@
                     if ($(this).isOnScreen() === true) {
                       (window.history.replaceState('state', 'null',
                                                    $(this).attr('href')));
+                      addthis.toolbox('.addthis_sharing_toolbox', {},
+                                      {url : $(this).attr('href')});
+                      $('meta[name=og\\:url]')
+                          .attr('content', $(window).location);
                       return e.preventDefault();
                     }
 
@@ -560,35 +562,38 @@
 
         /* Google Map Integration */
 
-        if ($('#map_canvas').length > 0) {
-          var map_canvas = $('#map_canvas');
-          var lat = map_canvas.attr('latitude');
-          var lng = map_canvas.attr('longitude');
-          var zoom = map_canvas.attr('zoom');
-          var location = map_canvas.attr('location');
-          if (!zoom)
-            zoom = 16;
-          if (lat && lng && zoom) {
-            map_canvas.wrap('<div class="map"></div>');
-            // if(location) $('div.map').append('<h3 class="location"><i
-            // class="fa fa-map-marker"></i>'+location+'</h3>');
-            initialize(lat, lng, zoom, location);
-          }
-        }
+        /*  if ($('#map_canvas').length > 0) {
+            var map_canvas = $('#map_canvas');
+            var lat = map_canvas.attr('latitude');
+            var lng = map_canvas.attr('longitude');
+            var zoom = map_canvas.attr('zoom');
+            var location = map_canvas.attr('location');
+            if (!zoom)
+              zoom = 16;
+            if (lat && lng && zoom) {
+              map_canvas.wrap('<div class="map"></div>');
+              // if(location) $('div.map').append('<h3 class="location"><i
+              // class="fa fa-map-marker"></i>'+location+'</h3>');
+              initialize(lat, lng, zoom, location);
+            }
+          }*/
 
-        $(window).smartresize(function(e) { wrapper.slick('setPosition'); });
+        //  $(window).smartresize(function(e) { wrapper.slick('setPosition');
+        //  });
       });
 
   var top =
-      $('.ad-wrapper #ad_4').offset().top -
+      $('.scroll-nav').offset().top -
       parseFloat($('.ad-wrapper #ad_4').css('marginTop').replace(/auto/, 0));
   $(window)
       .scroll(function(event) {
+        // console.log(top);
         // what the y position of the scroll is
         var y = $(this).scrollTop();
-
+        // console.log(y + "im this");
         // whether that's below the form
         if (y >= top) {
+          console.log(y + ":" + top);
           // if so, ad the fixed class
           $('.ad-wrapper #ad_4').addClass('fixed');
         } else {
@@ -597,27 +602,28 @@
         }
       });
 
-  function initialize(lat, lng, zoom, location) {
-    var latlng = new google.maps.LatLng(lat, lng);
-    var myOptions = {
-      zoom : parseInt(zoom),
-      center : latlng,
-      scrollwheel : false
-    };
-    var map =
-        new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-    // map.setMapTypeId('roadmap');
-    var marker = new google.maps.Marker({position : latlng, map : map});
-    if (location) {
-      var infowindow = new google.maps.InfoWindow({
-        content : '<div class="infowindow">' + location + '</div>',
-        maxWidth : 370
-      });
-      infowindow.open(map, marker);
-    }
-    google.maps.event.addListener(marker, 'click',
-                                  function() { infowindow.open(map, marker); });
-    google.maps.event.addDomListener(window, 'resize',
-                                     function() { map.setCenter(latlng); });
-  }
+  /*  function initialize(lat, lng, zoom, location) {
+      var latlng = new google.maps.LatLng(lat, lng);
+      var myOptions = {
+        zoom : parseInt(zoom),
+        center : latlng,
+        scrollwheel : false
+      };
+      var map =
+          new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+      // map.setMapTypeId('roadmap');
+      var marker = new google.maps.Marker({position : latlng, map : map});
+      if (location) {
+        var infowindow = new google.maps.InfoWindow({
+          content : '<div class="infowindow">' + location + '</div>',
+          maxWidth : 370
+        });
+        infowindow.open(map, marker);
+      }
+      google.maps.event.addListener(marker, 'click',
+                                    function() { infowindow.open(map, marker);
+    });
+      google.maps.event.addDomListener(window, 'resize',
+                                       function() { map.setCenter(latlng); });
+    }*/
 })(jQuery);
