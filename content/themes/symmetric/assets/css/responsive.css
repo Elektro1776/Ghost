@@ -29,24 +29,96 @@
 @media screen and (max-width: 960px){
 	h1.title{
 		font-size:24px;
-		line-height:32px;
+		line-height:1.5;
 	}
 }
 
 /* All Mobile Devices */
 @media screen and (max-width:400px){
-	h1.title {margin:-10px 0 20px;}
-/*main-image{height:187px!important;}*/
-.at-share-btn >.at-svc-stumbleupon {display:none!important;}
-#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{
-	line-height: 32px!important;height: 32px!important;width: 32px!important;float:left!important;
+		h1.title {margin:-10px 0 20px;}
+	/*main-image{height:187px!important;}*/
+	.at-share-btn >.at-svc-stumbleupon {display:none!important;}
+	#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{
+		line-height: 32px!important;height: 32px!important;width: 32px!important;float:left!important;
+	}
+	#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{height:32px!important;width:32px!important;line-height: 32px!important;}
+	#atstbx2 .at-share-btn-elements .at-svc-facebook {
+	    width: 160px !important;
+	    position: relative;}
+	.addthis_sharing_toolbox{
+		clear:none!important;padding-left:15px;
+	}
+	#atstbx2 .at-share-btn-elements .at-svc-facebook:after{
+		left:36%!important;
+	}
+	.post_subscribe_form{
+		padding-top: 10px;
+	}
+	.post-content {
+		width:	107%;
+	}
+	.post-template .fade-1{
+		width:	107%;
+		left: -5px;
+	}
+	.post-template .fade-out{
+		width:	107%;
+		left: -5px;
+	}
+
+
+	.ad-container{
+		margin-left: -35px;
+	}
 }
-#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{height:32px!important;width:32px!important;line-height: 32px!important;}
-.at-share-btn-elements .at-svc-facebook {
-    width: 91px !important;
-    position: relative;}
-	
-		.at-share-btn-elements .at-svc-facebook:after{left:30%!important;}
+/* IPHONE 6 plus */
+@media screen and (min-width:400px) and (max-device-width : 736px){
+		h1.title {margin:-10px 0 20px;}
+	/*main-image{height:187px!important;}*/
+	.at-share-btn >.at-svc-stumbleupon {display:none!important;}
+	#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{
+		line-height: 32px!important;height: 32px!important;width: 32px!important;float:left!important;
+	}
+	#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{height:32px!important;width:32px!important;line-height: 32px!important;}
+	#atstbx2 .at-share-btn-elements .at-svc-facebook {
+	    width: 160px !important;
+	    position: relative;}
+	.addthis_sharing_toolbox{
+		clear:none!important;padding-left:15px;
+	}
+	#atstbx2 .at-share-btn-elements .at-svc-facebook:after{
+		left:36%!important;
+	}
+	.post_subscribe_form{
+		padding-top: 10px;
+	}
+	.post-content {
+		width:	107%;
+	}
+	.post-template .fade-1{
+		width:	107%;
+		left: -5px;
+	}
+	.post-template .fade-out{
+		width:	107%;
+		left: -5px;
+	}
+
+
+	.ad-container{
+		margin-left: -15px;
+	}
+}
+
+
+#atstbx3 .at-share-btn-elements .at-svc-facebook:after{left:33%!important;}
+#atstbx3 .at-share-btn-elements .at-svc-facebook {width: 91px !important;position: relative;}
+.social-button a i {
+    float: right;
+    position: relative;
+    font-size: 21px;
+    padding-right: 30px;
+
 }
 @media screen and (min-width: 959px){
 }
@@ -197,7 +269,7 @@ div.articles article div.post-excerpt{
 	.container {max-width:480px;}
 }
 @media screen and (max-width: 768px){
-	.main{margin-top:100px;}
+	
 	#logo {margin-top: -5px;}
 
 		.mobile-logo{display:block!important;}

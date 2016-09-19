@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{{meta_title}}</title>
+
+    <meta name="description" content="{{meta_description}}" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    <link href='//fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <script src="{{asset "js/modernizr.js"}}"></script>
+
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}" style="{{#if @blog.cover}}background: url({{@blog.cover}}) center center fixed;{{/if}}">
+
+    <div id="container">
+
+    {{{body}}}
+
+    </div>
+
+    {{ghost_foot}}
+
+<script type="text/javascript" src="{{asset "js/layout.min.js"}}"></script>
+<script type="text/javascript" src="{{asset "js/jquery.infinitescroll.min.js"}}"></script>
+
+<script>
+$(function(){
+
+$('.content').layout({
+itemMargin: 20,
+itemPadding: 10
+});
+
+var totalPages = parseInt($('.pagination .page-number').text().split(' ').pop());
+
+$('#content').infinitescroll({
+    navSelector  : '.pagination',
+    nextSelector : '.pagination .older-posts',
+    itemSelector : '.single-post',
+    maxPage: totalPages,
+    loading: {
+        finishedMsg: ''
+        }
+    },
+    function( newElements ) {
+        console.log('loading')
+        $('.content').layout('addAfter', newElements)
+    }
+);
+
+$('.pagination').hide();
+
+});
+</script>
+
+</body>
+</html>

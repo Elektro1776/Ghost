@@ -1,0 +1,74 @@
+{{!< default}}
+
+{{#post}}
+
+<header id="header" class="main-header post-head">
+    <div class="header-content">
+
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} Logo" /></a>{{/if}}
+        <h1 class="page-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+        <h2 class="page-description">{{@blog.description}}</h2>
+        <a class="subscribe icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        <div class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</div>
+
+    </div>
+</header>
+
+<div class="single-post-view">
+
+    <article class="{{post_class}}">
+
+        <header class="post-header">
+            {{#if image}}<img class="post-featured-img" src={{image}} alt="Featured Post Image" />{{/if}}
+            <h1 class="post-title">{{title}}</h1>
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        </header>
+
+        <section class="post-content">
+        {{content}}
+        </section>
+
+        <footer class="post-meta">
+
+        {{#author}}
+
+        <div class="author-info">
+            {{#if image}}<div class="author-thumb"><img class="single-avatar" src="{{image}}" alt="Author image" nopin="nopin" /></div>{{/if}}
+            <div class="author-and-date">
+            <div class="author-name"><a href="{{url}}">{{name}}</a></div>
+            {{#if bio}}
+            <div class="author-description">{{bio}}</div>
+            <p><a href="{{url}}">More posts</a> by this author.</p>
+            {{/if}}
+            </div>
+        </div>
+
+        {{/author}}
+
+        {{#if tags}}<div class="post-tags">{{tags}}</div>{{/if}}
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="share-link" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span>Twitter</span>
+                </a>
+                <a class="share-link" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span>Facebook</span>
+                </a>
+                <a class="share-link" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span>Google Plus</span>
+                </a>
+            </section>
+
+
+
+        </footer>
+
+    </article>
+
+</div>
+
+{{/post}}

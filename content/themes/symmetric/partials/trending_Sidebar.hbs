@@ -1,0 +1,50 @@
+<section class="sidebar-posts">
+  <div class="hidden-xs col-lg-4 col-sm-4" >
+    <div class="ad-wrapper trending">
+      <!--TBN ATF 300x250 pos 1 STARTS
+	<div id="tbn-0e8a075c-44a8-d999-deca-382490efe356">
+	     <script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("0e8a075c-44a8-d999-deca-382490efe356");</script>
+	</div>
+TBN ATF 300x250 pos 1 ENDS-->
+
+  <h3 class="trending_title"><i class="fa fa-line-chart" aria-hidden="true"></i> TRENDING</h3>
+</div>
+  <ol style="padding:0;">
+    {{#foreach trending_Posts}}
+    <article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-md-12 col-xs-12{{/if}}" style=" margin-bottom:10px;">
+      {{#if image}}
+        <a href="{{url}}" class="thumb hover-effect">
+          <img src="{{image}}" style="">
+        </a>
+      {{else}}
+        {{content words="0"}}
+      {{/if}}
+    <h4 class="relatedTitle"><a href="{{url}}">{{title}}</a></h4>
+    <div class="meta">
+      {{#if tags}}
+      <div class="tags">
+        {{tags separator=""}}
+      </div>
+      {{/if}}
+      <div>
+      {{#if author}}
+      <span class="relatedAuthor"><span class="author_by">By</span> {{author.name}}</span>
+      {{/if}}
+
+      </div>
+
+        </div>
+  </article>
+    {{/foreach}}
+  </ol>
+  <div class="hidden-xs col-lg-4 col-sm-4" >
+    <div class="ad-wrapper trending">
+  <!--TBN BTF 300x250 pos 2 STARTS
+  	<div id="tbn-7ce2ea7c-72c2-f1d0-7c51-8972001e9aad">
+  	     <script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("7ce2ea7c-72c2-f1d0-7c51-8972001e9aad");</script>
+  	</div>-->
+  </div>
+</div>
+  <!--TBN BTF 300x250 pos 2 ENDS-->
+</div>
+</section>

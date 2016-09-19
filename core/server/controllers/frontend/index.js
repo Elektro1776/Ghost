@@ -33,6 +33,11 @@ function renderPost(req, res) {
 }
 
 frontendControllers = {
+    trending: function trending(req,res,next) {
+        api.posts.browse({limit:20}).then(function (result) {
+          res.render('trending',{posts:result.posts});
+      });
+    },
     preview: function preview(req, res, next) {
         var params = {
                 uuid: req.params.uuid,

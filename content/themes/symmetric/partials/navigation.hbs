@@ -1,7 +1,10 @@
 
 <ul id="menu-header" class="main-nav-menu">
 	{{#foreach navigation}}
+	<a href="{{url absolute="true"}}">
 		<li class="nav-extra-padding nav-{{slug}} {{#if current}} current-menu-item{{/if}}" >
-			<a href="{{url absolute="true"}}">{{label}}</a></li>
+				{{label}}
+			</li>
+	</a>
 	{{/foreach}}
 </ul>

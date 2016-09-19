@@ -30,7 +30,8 @@ frontendRoutes = function frontendRoutes() {
 
     // Channels
     router.use(channels.router());
-
+    // Trending
+    router.get('/trending', frontend.trending);
     // Default
     router.get('*', frontend.single);
 

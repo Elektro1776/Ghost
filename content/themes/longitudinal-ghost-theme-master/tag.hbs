@@ -1,0 +1,19 @@
+{{!< default}}
+
+<header id="header" class="main-header post-head">
+    <div class="header-content">
+
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} Logo" /></a>{{/if}}
+        <h1 class="page-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+        <h2 class="page-description">{{@blog.description}}</h2>
+        <a class="subscribe icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        <div class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</div>
+
+    </div>
+</header>
+
+<div id="content">
+    <div class="content">
+            {{> "loop"}}
+    </div>
+</div>

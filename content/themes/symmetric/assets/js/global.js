@@ -4,6 +4,7 @@
   /* Dom Loaded */
   $(document)
       .ready(function($) {
+
         var $window = $(window), ath = $('#addThis'),
             athScroll = $('#addThis_scroll');
 
@@ -31,7 +32,7 @@
           });
           $('.at-svc-stumbleupon .at-icon-wrapper').css({'display' : 'none'});
           // 2nd set Add this Buttons on Scroll
-          athScroll.addClass("col-xs-7 col-lg-3 col-lg-offset-3")
+          athScroll.addClass("col-xs-7 col-lg-4 col-lg-offset-3")
               .css({
                 "display" : "inline-flex",
                 "clear" : "none",
@@ -116,26 +117,28 @@
         // FADE-OUT READ MORE button
         var $el, $p, $ps, $up, totalHeight, articleHeight;
 
-        $(" .fade-out .btn")
+        $(" .fade-1 .btn")
             .click(function() {
 
               totalHeight = 0;
-              articleHeight = $('.fade-out').children().not('.read-more');
+              articleHeight = $('.fade-1').children().not('.read-more');
               $el = $(this);
-              console.log($el);
+              //  console.log($el);
               $p = $el.parent();
-              console.log($p);
+              //  console.log($p);
               $up = $p.parent();
-              console.log($up);
+              //  console.log($up);
               $ps = $up.find(articleHeight);
 
-              // measure how tall inside should be by adding together heights of
+              // measure how tall inside should be by adding together heights
+
               // all inside paragraphs (except read-more paragraph)
               $ps.each(function() { totalHeight += $(this).outerHeight(); });
               // console.log($(this).outerHeight());
               // console.log($ps);
               $up.css({
-                   // Set height to prevent instant jumpdown when max height is
+                   // Set height to prevent instant jumpdown when max height
+                   // is
                    // removed
                    "height" : $up.height(),
                    "max-height" : 9999
@@ -149,6 +152,7 @@
               return false;
 
             });
+
         // END OF READ MORE BUTTON FADE OUT
 
         // INFINITE SCROLL
@@ -156,43 +160,71 @@
 
         function insertPost(postData) {
           var timeago = moment(postData.published_at).startOf('hour').fromNow();
-          // console.log(timeago);
-
+          // start the inserting of the html
           var postInfo =
-              '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
-                          <a href="' +
-              postData.url + '" class="local thumb hover-effect"><img src="' +
-              postData.image + '"></a>\
-              <h2 class="title"><a href="' +
-              postData.url + '">' + postData.title + '</a></h2>\
-              <div class="meta">\
-              <div class="tags"></div>\
-              <i class="fa fa-circle circle" ></i><span class="author">Heart Centered Rebalancing</span>\
-              <timeclass="post-date" datetime="' +
-              timeago + '">  <i class="fa fa-clock-o"></i>' + timeago +
-              '</time>\
-              <div class="row fade-out" style=margin-left:0;>\
-              <div class="text">' +
+              '<div class="meta">\
+          <a class="local" href="' +
+              postData.url +
+              '"><h1 class="title" id="post_title" style="font-family:Playfair Display;">' +
+              postData.title + '</h1></a>\
+            <div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>\
+                <div class="row">';
+
+          postInfo += ' <time class="post-date" datetime="' + timeago +
+                      '">  <i class="fa fa-clock-o"></i>' + timeago + '</time>\
+                                </div>';
+
+          postInfo += '<div class="main-image cover">\
+                        <img src="' +
+                      postData.image +
+                      '" style="width:100%" height="400" alt=""/>\
+                          <div class="center grid-container">\
+                            <div class="boxed cover" style="background: url("' +
+                      postData.url + '");"></div>\
+                            <div class="boxed overlay"></div>\
+                          </div>\
+                    </div>\
+                    <div class="center content section ">\
+                      <article class="post">\
+                        <section class="post-content" style="margin-bottom:50px;">\
+                        <div class="ad-container col-lg-4 col-xs-12"></div>'; // Ad
+          // should
+          // go
+          // here
+
+          postInfo +=
+              '<div class="row fade-out" style=margin-left:0;>\
+          <div class="text">' +
               postData.html +
-              '</div><p class="read-more"><a class="btn" href="#">"Read More"</a></p>\
-              <div class="clear"</div\
+              '</div><p class="read-more"><a class="btn" href="#">Read More</a></p>\
+          <div class="clear"></div>\
+          </div>\
+                        </section>\
+                      </article>\
+                    </div>\
               </div>\
-              </article>\
-                          ';
-          // Where we drop our new post data onto the page
-          $('article').last().after(postInfo);
+          ';
+          // Append the html to the content of the blog
+          //$('article').last().after(postInfo);
+          $(postInfo).appendTo(".loaded_content");
+          // incriment next page so it will get the next page of posts if hit
+          // again.
         }
         // Are we on the post page? if so scroll the bitch
         // TODO figure out how to stop the infinte scroll after 20 articles are
         // loaded
+        var trueContent = false;
         if ($('body').hasClass('post-template')) {
+          var page = 2;
           $(window)
               .scroll(function() {
-                if ($(window).scrollTop() + $(window).height() ==
-                        $(document).height() &&
-                    $('.post').length <= 20) {
-                  $.getJSON(
-                       ghost.url.api('posts', {limit : 4, include : "author"}))
+                if ($window.scrollTop() + $window.height() >=
+                        parseInt($(document).height()) &&
+                    trueContent == false) {
+                  ++page;
+                  $.getJSON(ghost.url.api(
+                                'posts',
+                                {limit : 4, page : page, include : "author"}))
                       .done(function(data) {
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
@@ -200,17 +232,18 @@
                       })
                       .fail(function(err) { console.log(err); });
                 }
-                console.log($('.post').length);
+                // console.log($('.post').length);
               });
         }
-        console.log($('.post').length + "Im the initial");
+        // console.log($('.post').length + "Im the initial");
         $.fn.isOnScreen = function() {
 
-          var win = $(window);
-
-          var viewport = {top : win.scrollTop(), left : win.scrollLeft()};
-          viewport.right = viewport.left + win.width();
-          viewport.bottom = viewport.top + win.height();
+          var viewport = {
+            top : $window.scrollTop(),
+            left : $window.scrollLeft()
+          };
+          viewport.right = viewport.left + $window.width();
+          viewport.bottom = viewport.top + $window.height();
 
           var bounds = this.offset();
           bounds.right = bounds.left + this.outerWidth();
@@ -234,10 +267,7 @@
                     if ($(this).isOnScreen() === true) {
                       (window.history.replaceState('state', 'null',
                                                    $(this).attr('href')));
-                      addthis.toolbox('.addthis_sharing_toolbox', {},
-                                      {url : $(this).attr('href')});
-                      $('meta[name=og\\:url]')
-                          .attr('content', $(window).location);
+
                       return e.preventDefault();
                     }
 
@@ -293,7 +323,7 @@
 
         /* Home */
 
-        if ($('section.tweets').length > 0 &&
+        /*if ($('section.tweets').length > 0 &&
             theme_config.twitter_username != '') {
           var username = theme_config.twitter_username;
           $('section.tweets h3').text('@' + username).show();
@@ -304,104 +334,104 @@
           var usernamepattern = /@+(\w+)/ig;
           var hashpattern = /#+(\w+)/ig;
           var pIMG, media, timestamp, abox, mtext;
-          var tweets = '';
+          var tweets = '';*/
 
-          /* Tweetcool fixes */
+        /* Tweetcool fixes */
 
-          //$.getJSON("https://www.api.tweecool.com/?screenname=" + username +
-          //"&count=" + limit, function(data) {
-          /*			$.getJSON("https://www.api.tweecool.com/?screenname="
-             +
-             username + "&count=" + limit, function(data) {
-                                          if (data.errors || data == null) {
-                                                  wrapper.html('No tweets
-             available.');
-                                                  return false;
-                                          }
+        //$.getJSON("https://www.api.tweecool.com/?screenname=" + username +
+        //"&count=" + limit, function(data) {
+        /*			$.getJSON("https://www.api.tweecool.com/?screenname="
+           +
+           username + "&count=" + limit, function(data) {
+                                        if (data.errors || data == null) {
+                                                wrapper.html('No tweets
+           available.');
+                                                return false;
+                                        }
 
-                                          $.each(data.tweets, function(i, field)
-             {
-                                                  mtext = field.text;
-                                                  tweets += '<div
-             class="item"><div class="tweets_txt">' + mtext.replace(urlpattern,
-             '<a href="$1" target="_blank">$1</a>').replace(usernamepattern, '<a
-             href="https://twitter.com/$1"
-             target="_blank">@$1</a>').replace(hashpattern, '<a
-             href="https://twitter.com/search?q=%23$1"
-             target="_blank">#$1</a>')+'</div></div>';
-                                          });
-                                          wrapper.html(tweets);
-                                          wrapper.slick({
-                                                  cssEase: 'ease',
-                                                  arrows: true,
-                                                  dots: false,
-                                                  infinite: false,
-                                                  variableWidth: false,
-                                                  swipe: true,
-                                                  vertical: true,
-                                                  slidesToShow: 1
-                                          });
-                                  }).fail(function(jqxhr, textStatus, error) {
-                                          wrapper.html('No tweets available.');
-                                  });
-                                  */
-          var get_tweets_config = {
-            id : theme_config.twitter_app_id,
-            domId : 'tweets',
-            maxTweets : theme_config.twitter_limit,
-            showImages : false,
-            showRetweet : false,
-            showTime : false,
-            showUser : false,
-            enableLinks : true,
-            customCallback : function(tweets) {
-              if (tweets) {
-                var x = tweets.length;
-                var n = 0;
-                var element = $('#tweets');
-                var html = '';
-                while (n < x) {
-                  html += '<div class="item"><div class="tweets_text">' +
-                          tweets[n] + '</div></div>';
-                  n++;
-                }
-              } else {
-                html = 'No tweets available';
+                                        $.each(data.tweets, function(i, field)
+           {
+                                                mtext = field.text;
+                                                tweets += '<div
+           class="item"><div class="tweets_txt">' + mtext.replace(urlpattern,
+           '<a href="$1" target="_blank">$1</a>').replace(usernamepattern, '<a
+           href="https://twitter.com/$1"
+           target="_blank">@$1</a>').replace(hashpattern, '<a
+           href="https://twitter.com/search?q=%23$1"
+           target="_blank">#$1</a>')+'</div></div>';
+                                        });
+                                        wrapper.html(tweets);
+                                        wrapper.slick({
+                                                cssEase: 'ease',
+                                                arrows: true,
+                                                dots: false,
+                                                infinite: false,
+                                                variableWidth: false,
+                                                swipe: true,
+                                                vertical: true,
+                                                slidesToShow: 1
+                                        });
+                                }).fail(function(jqxhr, textStatus, error) {
+                                        wrapper.html('No tweets available.');
+                                });
+                                */
+        /*var get_tweets_config = {
+          id : theme_config.twitter_app_id,
+          domId : 'tweets',
+          maxTweets : theme_config.twitter_limit,
+          showImages : false,
+          showRetweet : false,
+          showTime : false,
+          showUser : false,
+          enableLinks : true,
+          customCallback : function(tweets) {
+            if (tweets) {
+              var x = tweets.length;
+              var n = 0;
+              var element = $('#tweets');
+              var html = '';
+              while (n < x) {
+                html += '<div class="item"><div class="tweets_text">' +
+                        tweets[n] + '</div></div>';
+                n++;
               }
-              wrapper.html(html);
-              wrapper.slick({
-                cssEase : 'ease',
-                arrows : true,
-                dots : false,
-                infinite : false,
-                variableWidth : false,
-                swipe : true,
-                vertical : true,
-                slidesToShow : 1
-              });
+            } else {
+              html = 'No tweets available';
             }
-          };
-          twitterFetcher.fetch(get_tweets_config);
-        }
-
-        $('.tooltip')
-            .tooltipster({
-              theme : 'tooltipster-small',
-              contentAsHTML : true,
-              animation : 'grow'
+            wrapper.html(html);
+            wrapper.slick({
+              cssEase : 'ease',
+              arrows : true,
+              dots : false,
+              infinite : false,
+              variableWidth : false,
+              swipe : true,
+              vertical : true,
+              slidesToShow : 1
             });
-        $('.share-button')
-            .tooltipster({
-              theme : 'tooltipster-small',
-              contentAsHTML : true,
-              animation : 'grow',
-              interactive : true,
-              functionInit : function(origin, continueTooltip) {
-                return this.next().html();
-              }
-            });
+          }
+        };
+        twitterFetcher.fetch(get_tweets_config);
+      }/*
 
-        /* Featured Sections */
+      $('.tooltip')
+          .tooltipster({
+            theme : 'tooltipster-small',
+            contentAsHTML : true,
+            animation : 'grow'
+          });
+      $('.share-button')
+          .tooltipster({
+            theme : 'tooltipster-small',
+            contentAsHTML : true,
+            animation : 'grow',
+            interactive : true,
+            functionInit : function(origin, continueTooltip) {
+              return this.next().html();
+            }
+          });
+
+      /* Featured Sections */
 
         if ($('aside#featured .featured-top').length > 0) {
           $.get("/tag/featured-top", function(data) {
@@ -581,27 +611,41 @@
         //  $(window).smartresize(function(e) { wrapper.slick('setPosition');
         //  });
       });
+  /*var homeTop =
+          parseInt($('#aswift_2_expand').offset().top;*/
+  /*  if ($('body').hasClass('post-template')) {
+      var postTop = parseInt($('#aswift_2_expand').offset().top -
+                             $('.scroll-nav').height());
+    }
+    if ($('body').hasClass('home-template')) {
+      var homeTop = parseInt($('#aswift_1_expand').offset().top);
+    }
+    $(window)
+        .scroll(function(event) {
+          // console.log(top);
+          // what the y position of the scroll is
+          var y = $(this).scrollTop();
+          // console.log(y + "im this");
+          // whether that's below the form
+          if (y >= postTop) {
+            // console.log(y + ":" + top);
+            // if so, ad the fixed class
+            $('.ad-wrapper #ad_4').addClass('fixed');
+          } else {
+            // otherwise remove it
+            $('.ad-wrapper #ad_4').removeClass('fixed');
+          }
+          if (y >= homeTop) {
+            // console.log(y + ":" + top);
+            // if so, ad the fixed class
+            $('.ad-wrapper #ad_1').addClass('fixed');
+          } else {
+            // otherwise remove it
+            $('.ad-wrapper #ad_1').removeClass('fixed');
+          }
 
-  var top =
-      $('.scroll-nav').offset().top -
-      parseFloat($('.ad-wrapper #ad_4').css('marginTop').replace(/auto/, 0));
-  $(window)
-      .scroll(function(event) {
-        // console.log(top);
-        // what the y position of the scroll is
-        var y = $(this).scrollTop();
-        // console.log(y + "im this");
-        // whether that's below the form
-        if (y >= top) {
-          console.log(y + ":" + top);
-          // if so, ad the fixed class
-          $('.ad-wrapper #ad_4').addClass('fixed');
-        } else {
-          // otherwise remove it
-          $('.ad-wrapper #ad_4').removeClass('fixed');
-        }
-      });
-
+        });
+  */
   /*  function initialize(lat, lng, zoom, location) {
       var latlng = new google.maps.LatLng(lat, lng);
       var myOptions = {

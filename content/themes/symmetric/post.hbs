@@ -5,155 +5,124 @@
 
 <!-- start: #single -->
 <div class="container content-wrap">
-
-
 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+		<main id="single" class="main " role="main">
+		{{#post}}
+			<!-- start: .meta -->
+			<div class="meta col-lg-12 col-md-12 col-xs-12">
+				<a href="{{url}}" class="local">
+				<h1 class="title" id="post_title" style="font-family:Roboto Condensed;">{{title}}</h1>
+				</a>
+					<div class="row">
+		          {{#if tags}}
+		            <div class="tags">
+		              {{tags separator=""}}
+		            </div>
+		          {{/if}}
+		          <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+							<div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false" style="display:inline-block;"></div>
+		      </div>
+		    </div>
+		    <div class="clear">
+		    </div>
+		    {{#if image}}
+		        {{^has tag="no cover"}}
 
-<main id="single" class="main " role="main">
-
-
-	{{#post}}
-	<!-- start: .meta -->
-	<div class="meta col-lg-12 col-md-12 col-xs-12">
-		<a href="{{url}}" class="local">
-		<h1 class="title" id="post_title" style="font-family:Roboto Condensed;">{{title}}</h1>
-		</a>
-		<div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
-			<div class="row">
-          {{#if tags}}
-            <div class="tags">
-              {{tags separator=""}}
-            </div>
-          {{/if}}
-          <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-      </div>
-    </div>
-    <div class="clear">
-    </div>
-    {{#if image}}
-        {{^has tag="no cover"}}
-
-                <div class="main-image cover">
-									<img src="{{image}}"  style="width:100%" height="400"  alt="" />
-                    <div class="center grid-container">
-                        <div class="boxed cover" style="background: url({{image}});"></div>
-                        <div class="boxed overlay"></div>
-                    </div>
-                </div>
-								<!--<div class="addthis_sharing_toolbox ">
-
-								</div>-->
-
-
-        {{/has}}
-    {{/if}}
-
-
-    <div class="clear">
-
-    </div>
-
-
-
-		<!-- start: .center -->
-		<div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
-
-				<!-- start: .content -->
-				<div class="row">
-
-					<article class="{{post_class}}">
-
-
-						{{#has tag="no cover"}}
-							<header>
-								<!-- start: .meta -->
-								<div class="meta">
-									{{#if tags}}
-										<div class="tags">
-											{{tags separator=""}}
+		                <div class="main-image cover">
+											<img src="{{image}}"  style="width:100%" height="400"  alt="" />
+		                    <div class="center grid-container">
+		                        <div class="boxed cover" style="background: url({{image}});"></div>
+		                        <div class="boxed overlay"></div>
+		                    </div>
+		                </div>
+										<!--<div class="addthis_sharing_toolbox "></div>-->
+		        {{/has}}
+		    {{/if}}
+		<div class="clear"></div>
+				<!-- start: .center -->
+				<div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
+						<!-- start: .content -->
+						<div class="row">
+							<article class="{{post_class}}">
+								{{#has tag="no cover"}}
+									<header>
+										<!-- start: .meta -->
+										<div class="meta">
+											{{#if tags}}
+												<div class="tags">
+													{{tags separator=""}}
+												</div>
+											{{/if}}
+											<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+											<a href="#comments" class="comments alignright"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
 										</div>
-									{{/if}}
-									<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-									<a href="#comments" class="comments alignright"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
-								</div>
-								<!-- end: .meta -->
-								<div class="clear"></div>
-								<h2 class="title">{{title}}</h2>
-								<div class="post-format">
-									{{#if image}}
-										<div class="main-image"><img src="{{image}}"></div>
-									{{/if}}
-								</div>
+										<!-- end: .meta -->
+										<div class="clear"></div>
+										<h2 class="title">{{title}}</h2>
+										<div class="post-format">
+											{{#if image}}
+												<div class="main-image"><img src="{{image}}"></div>
+											{{/if}}
+										</div>
+									</header>
+								{{/has}}
+								<section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12" style="z-index:999;margin-bottom:50px;">
+									<div class="ad-container col-lg-4">
 
-							</header>
-						{{/has}}
-						<section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
-							<div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10">
-									{{subscribe_form placeholder="Your Email Here"}}
-								</div>
-							<section class="widget widget_text col-lg-5 col-md-6 col-sm-8 xs-6">
-								<div id="ad_4" class="">
-									<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
-								</div>
-							</section>
-							<div class="row">
-								<div class="addthis_sharing_toolbox col-lg-5 " style="float:right;"></div>
-							</div>
+</div>
+									<div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10">
+											{{subscribe_form placeholder="Your Email Here"}}
+										</div>
 
+									<!--<section class="widget widget_text col-lg-5 col-md-6 col-sm-8 xs-6">
+										<div id="ad_4" class="">
+											<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+										</div>
+									</section>-->
+									<div class="row">
+								<!--		<div class="addthis_sharing_toolbox col-lg-6 " style="float:right;"></div> -->
+									</div>
+		{{#if error}}
+		    <p class="main-error">{{{error.message}}}</p>
+		{{/if}}
+										<div class="row fade-1">
+									    <div class="text">{{content}}</div>
+												<p class="read-more"><a class="btn" href="#">Read More</a></p>
+								    </div>
 
-{{#if error}}
-    <p class="main-error">{{{error.message}}}</p>
-{{/if}}
-								<div class="row fade-out">
+		              </section>
+							</article>
 
-							        	<div class="text">{{content}}</div>
-													<p class="read-more"><a class="btn" href="#">Read More</a></p>
+		      </div>
+		      <div class="clear"></div>
+	    		<div class="clear"></div>
+						<!-- end: .content -->
 
-						    </div>
-
-              </section>
-					</article>
-				</div>
-        </div>
-        <div class="clear"></div>
-
-
-    <div class="clear"></div>
-				<!-- end: .content -->
-
-
-
-    {{/post}}
-
-
-    {{>sidebar-featured}}
-
-		<!-- end: .center -->
-
-
+		    {{/post}}
+		    {{>sidebar-featured}}
+				<!-- end: .center -->
 </main>
 <!-- end: #single -->
 </div>
 <div class="hidden-xs col-lg-4 col-sm-4 pull-right">
 	<div class="ad-wrapper ">
 		<div id="ad_4" >
-			<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+
+
 		</div>
 	</div>
 </div>
 <div class="clear">
 
 </div>
-<div class="row">
 
-	<div class=" col-lg-8 col-sm-8">
+
+	<div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<section class="related grid-container grid-parent">
 			<h3 class="title bordered">RELATED POSTS</h3>
 			{{>related_posts}}
-			<div class="loaded_content">
-
-			</div>
+			<div class="loaded_content"></div>
 		</section>
 	</div>
-</div>
+
 </div>

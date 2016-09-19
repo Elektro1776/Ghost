@@ -24,7 +24,7 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockqu
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main{ display: block; }
 
-body { line-height: 1; }
+body { line-height: 1.5; }
 ol, ul { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,
@@ -83,6 +83,8 @@ h6{ font-size: 11px; }
 	padding-left: 10px;
 }
 h1.title{ font-size: 48px; line-height: 56px; margin:-10px 0 20px; font-weight: 700;}
+h1.title a{color:#ffffff}
+h1.title a:hover{ color:#dcdcdc;}
 h2.title{ font-size: 24px; }
 h3.title{ font-size: 16px; line-height: 1.4; }
 h4.title{ font-size: 16px; line-height: 1.4; }
@@ -231,10 +233,14 @@ body.cover #single div.main-image .boxed.cover{
 /* add this button styling */
 .addthis_sharing_toolbox{clear:none!important;padding-left:1px;}
 .at-share-tbx-element .at-share-btn{margin-right:5px!important;}
-#atstbx.at-share-tbx-element .at-share-btn{border-radius:40px!important;}
-#atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper{width:42px!important;height:42px!important;line-height:42px!important;float:left!important;}
+.at-share-tbx-element .at-share-btn{border-radius:40px!important;}
+#atstbx2 .at-svc-facebook .at-icon-wrapper{width:42px!important;height:42px!important;line-height:42px!important;float:left!important;}
+#atstbx2 .at-svc-facebook .at-icon-wrapper svg{width:45px!important;height:40px!important;}
 #atstbx.at-share-tbx-element .at-share-btn .at-icon-wrapper .at-icon{width:42px!important;height:42px!important;}
 #atstbx .at-svc-stumbleupon span{display:none;}
+#atstbx2 .at-svc-email span{display:none;}
+#atstbx2 .at-svc-compact span{display:none;}
+#atstbx2 .at-svc-stumbleupon span{display:none;}
 .at-share-btn-elements .at-svc-facebook {
     width: 210px !important;
     position: relative;}
@@ -276,10 +282,21 @@ body.cover #single div.main-image .boxed.cover{
 border-radius:25px;
 
 }
+.post-template .read-more .btn{
+	position: relative;
+	top:120px;
+}
+.email{
+	padding-left: 15px;
+}
 /* Dropdown Content (Hidden by Default) */
 .btn ul{
 
 
+}
+.fb-like{
+		float: right;
+		padding-bottom: 5px;
 }
 .dropdown ul:hover {
  background:transparent;
@@ -294,14 +311,10 @@ border-radius:25px;
 	 position:absolute;
 	 top:-11px;
 	 left:60px;
-
-
 }
 .dropdown-menu li a {
 	 color: black;
-
 	 text-decoration: none;
-
 }
 
 /* Change color of dropdown links on hover */
@@ -375,11 +388,11 @@ position:absolute;
 
 @media screen and (max-width: 768px) {
 	.social-button {
-		width: 47%;
+		width: 100%;
 		margin-left: 1%;
 		margin-right: 1%;
 		display: inline-block;
-        padding-left: 30px;
+    padding-left: 30px;
 	}
 	.gh-subscribe .container {
 		width: 100%;
@@ -487,10 +500,16 @@ bottom: 0;
 left: 0;
 width: 100%;
 text-align: center;
-margin: 0; padding: 30px 0;
+margin: 0; padding: 120px 0;
 
 /* "transparent" only works here because == rgba(0,0,0,0) */
 background-image: linear-gradient(to bottom, transparent, #fff);
+}
+.post-template .fade-1{
+	max-height: 444px;
+	position: relative;
+	overflow-y: hidden;
+	width:100%;
 }
 
 
@@ -528,7 +547,7 @@ background-image: linear-gradient(to bottom, transparent, #fff);
 /* end tag page titles*/
 /* Customs Tags */
 
-div.tags{ display: inline-block; }
+div.tags{ display: inline-block; line-height: 1.6;}
 div.tags a, div.tags span{
 	font: bold 10px/1 'Roboto Condensed';
 	color: #000;
@@ -557,8 +576,8 @@ div.tags a:hover{
 /* Global post date */
 
 article time, div.meta time{ display: inline-block; font-size: 14px; color: #888; font-family: 'Roboto Condensed'; font-weight: bold; text-transform: uppercase; vertical-align: middle; }
-article time .fa, div.meta time{ margin-right: 3px; }
-div.meta time{ margin-bottom: 5px; }
+article time .fa, div.meta time{ margin-right: 3px; margin-top: 10px;}
+div.meta time{ margin-bottom: 5px; margin-top:0px; }
 div.meta a.comments{ font-size: 10px; color: #888; }
 div.meta a.comments:hover{ color: #000; }
 div.meta a.comments i.fa{ margin-right: 3px; }
@@ -572,7 +591,8 @@ div.meta a.comments i.fa{ margin-right: 3px; }
 .ad-wrapper-home{ position: absolute; }
 .ad-wrapper #ad_4{ position: absolute; }
 .ad-wrapper #ad_4.fixed{ position: fixed; top: 15%; }
-
+.ad-wrapper #ad_1{ position: absolute; }
+.ad-wrapper #ad_1.fixed{ position: fixed; top: 15%; }
 /* Buttons */
 
 .button{
@@ -870,9 +890,9 @@ background:#fff;
 
 /* @group Global Articles List */
 
-div.articles h3.title{ margin-bottom: 20px; }
+div.articles h3.title{ margin-top: 100px; }
 div.articles article.first{ padding-bottom: 50px; margin-bottom:40px; }
-article.mainImg{padding-right:65px;height:auto;}
+article.mainImg{padding-right:45px;height:auto;}
 div.articles article a.thumb img{ display: block; }
 div.articles article div.meta{ margin: 15px 0 10px; }
 div.articles article h4.title{ font-size: 24px; margin-bottom: 13px; line-height: 1.2; font-weight:700; font-family: Playfair Dispay;}
@@ -1088,6 +1108,7 @@ section.tweets div.slick .slick-next{ right: 20px; }
 /* @group Single Post
 
 */
+
 .content-wrap{margin-top:50px;}
 #single div.main-image.cover{  position: relative; z-index: 1; }
 #single .boxed{ display: none !important; }

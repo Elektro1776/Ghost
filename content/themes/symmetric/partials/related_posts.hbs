@@ -2,30 +2,23 @@
 {{#foreach posts }}
 
 <!-- start: .meta -->
-<div class="meta col-lg-12 col-md-12 col-xs-12">
+<div class="meta">
   <a href="{{url}}" class="local">
   <h1 class="title" id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
   </a>
   <div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
       <div class="row">
-
               {{#if tags}}
-              <div class="tags">
+            <div class="tags">
                   {{tags separator=""}}
-              </div>
+            </div>
               {{/if}}
-              <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-              <a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
-          </div>
+            <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+      </div>
 
 
-  </div>
-  <div class="clear">
-
-  </div>
   {{#if image}}
       {{^has tag="no cover"}}
-
               <div class="main-image cover">
                 <img src="{{image}}"  style="width:100%" height="400"  alt="" />
                   <div class="center grid-container">
@@ -33,84 +26,80 @@
                       <div class="boxed overlay"></div>
                   </div>
               </div>
-              <!--<div class="addthis_sharing_toolbox ">
-
-              </div>-->
-
-
-      {{/has}}
+          {{/has}}
   {{/if}}
 
-
-  <div class="clear">
-
-  </div>
-
-
-
-  <!-- start: .center -->
+    <!-- start: .center -->
   <div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
 
       <!-- start: .content -->
-      <div class="row">
 
         <article class="{{post_class}}">
-
-
           {{#has tag="no cover"}}
             <header>
-              <!-- start: .meta -->
-              <div class="meta" style="margin-top:50px;">
-                {{#if tags}}
-                  <div class="tags">
-                    {{tags separator=""}}
-                  </div>
-                {{/if}}
-                <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
-
-              </div>
-              <!-- end: .meta -->
-              <div class="clear"></div>
-              <h2 class="title">{{title}}</h2>
-              <div class="post-format">
-                {{#if image}}
-                  <div class="main-image"><img src="{{image}}"></div>
-                {{/if}}
-              </div>
+                <!-- start: .meta -->
+                <div class="meta" style="margin-top:50px;">
+                  {{#if tags}}
+                    <div class="tags">
+                      {{tags separator=""}}
+                    </div>
+                  {{/if}}
+                  <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+                </div>
+                <!-- end: .meta -->
+                <div class="clear"></div>
+                <h2 class="title">{{title}}</h2>
+                <div class="post-format">
+                  {{#if image}}
+                    <div class="main-image"><img src="{{image}}"></div>
+                  {{/if}}
+                </div>
 
             </header>
           {{/has}}
-          <section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
+          <section class="post-content" style="margin-bottom:50px;">
+            <div class="ad-container col-lg-4 col-xs-12">
+  <!--          <script type="text/javascript">
+
+google_ad_client = "ca-pub-2315916373893743";
+
+/* heartcenteredrebalancing.com 300x250 */
+
+google_ad_slot = "6796582565";
+
+google_ad_width = 300;
+
+google_ad_height = 250;
+
+//
+
+</script>
+
+<script type="text/javascript"
+
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script>-->
+</div>
             <div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10">
                 {{subscribe_form placeholder="Your Email Here"}}
               </div>
-            <section class="widget widget_text col-lg-5 col-md-6 col-sm-8 xs-6">
-              <div id="ad_4" class="">
-                <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
-              </div>
-            </section>
-            <div class="row">
-              <div class="addthis_sharing_toolbox col-lg-5 " addthis:url="{{url}}" addthis:title="{{title}}" addthis:description="{{meta_description}}" data-url={{url}} data-title="{{title}}" data-description="{{meta_description}}"style="float:right;"></div>
-            </div>
-
-
 {{#if error}}
   <p class="main-error">{{{error.message}}}</p>
 {{/if}}
               <div class="row fade-out">
-
-                      <div class="text">{{content}}</div>
-                        <p class="read-more"><a class="btn" href="#">Read More</a></p>
-
+                  <div class="text">{{content}}</div>
+                    <p class="read-more"><a class="btn" href="{{url}}">Read More</a></p>
               </div>
+
 
             </section>
         </article>
       </div>
-      </div>
-      <div class="clear"></div>
+  </div>
 
 
-  <div class="clear"></div>
+
+
   {{/foreach}}
 {{/get}}

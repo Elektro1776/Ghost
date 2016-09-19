@@ -22,7 +22,7 @@
                                                style="background:url({{image}}); background-size:cover; background-repeat: no-repeat; position:static;">
                                               <div style="position: relative; top: 80%;">
                                                   <span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
-                                                      <h1 class="title" style="line-height:36px;"><a href="{{url}}"  style="color:#fff; ">{{{title}}}</a></h1>
+                                                      <h1 class="title" ><a href="{{url}}">{{{title}}}</a></h1>
                                                   </span>
                                               </div>
                                           </div>
@@ -47,6 +47,34 @@
                               </div>
 
                           </div>
+                          <div class="col-md-4">
+                              <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 40px;">
+                                  <div id="ad_1" class="">
+                                      <a href="" class="ads" target="_blank">
+                                        <script type="text/javascript"><!--
+
+                      google_ad_client = "ca-pub-2315916373893743";
+
+                      /* heartcenteredrebalancing.com 300x250 */
+
+                      google_ad_slot = "6796582565";
+
+                      google_ad_width = 300;
+
+                      google_ad_height = 250;
+
+                      //-->
+
+                      </script>
+
+                      <script type="text/javascript"
+
+                      src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+
+                      </script></a>
+                                  </div>
+                              </div>
+                          </div>
                         </div>
                 <div class="clear"></div>
           </div>
@@ -54,9 +82,9 @@
         <div class="container">
 
 
-          <div class="  col-md-8" style="margin-top: 50px;">
+          <div class="  col-md-8 col-xs-12" style="margin-top: 50px; padding-left:1px;padding-right:1px;">
               {{else}}
-        <article class=" {{post_class}}  {{#if @rowStart}} col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-12{{/if}}" style="height:auto;">
+        <article class=" {{post_class}}  {{#if @rowStart}} col-md-6 col-sm-6 col-xs-12{{/if}} {{#if @rowEnd}} col-md-6 col-sm-6 col-xs-12{{/if}}" style="height:auto; padding-left:1px;padding-right:1px;">
           <header>
             {{#if image}}
               <a href="{{url}}" class="thumb hover-effect">
@@ -69,7 +97,7 @@
               <div class="alignleft">
 
                 <h2 class="title" ><a href="{{url}}">{{title}}</a></h2>
-                <i class="fa fa-circle circle"></i>
+                <i class="fa fa-heart circle"></i>
                   <span class="author">  Heart Centered Rebalancing</span>
                 <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i>{{date published_at timeago="true"}}</time>
               </div>
@@ -92,18 +120,7 @@
 
     {{/foreach}}
           </div>
-          <div class="col-md-4">
-              <div class="ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 40px;">
-                  <div id="ad_4" class="">
-                      <a href="" class="ads" target="_blank">
-                        <div id='12345678-20'>
-                        <script type='text/javascript'>
-                        googletag.cmd.push(function() { googletag.display('12345678-20'); });
-                        </script>
-                        </div></a>
-                  </div>
-              </div>
-          </div>
+
       </div>
     </div>
 

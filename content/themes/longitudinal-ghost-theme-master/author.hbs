@@ -1,0 +1,47 @@
+{{!< default}}
+
+    <header id="header" class="main-header post-head">
+       {{#author}}
+        <div class="header-content">
+
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}} Logo" /></a>{{/if}}
+            <h1 class="page-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+            <h2 class="page-description">{{@blog.description}}</h2>
+            <a class="subscribe icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+            <div class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</div>
+
+        </div>
+    </header>
+
+    <section id="author-profile">
+
+       <div class="author-details-cont">
+
+        {{#if image}}
+        <div class="author-image">
+            <img src="{{image}}" alt="Author Image" />
+        </div>
+        {{/if}}
+
+        <div class="author-details">
+            <h1 class="author-title">{{name}}</h1>
+            {{#if website}}<p class="author-link"><a href="{{website}}">{{website}}</a></p>{{/if}}
+            {{#if location}}<p class="author-location">{{location}}</p>{{/if}}
+            <p class="author-bio">{{bio}}</p>
+            <div class="author-meta">
+                <span class="author-stats"><i class="icon-stats"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+            </div>
+        </div>
+
+        </div>
+        {{/author}}
+
+    {{pagination}}
+
+</section>
+
+<div id="content">
+    <div class="content">
+        {{> "loop"}}
+    </div>
+</div>

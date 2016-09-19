@@ -1,0 +1,24 @@
+{{#foreach posts}}
+<article class="single-post {{post_class}}">
+
+    <header class="post-header">
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+    </header>
+
+    <section class="post-excerpt">
+        <p>{{excerpt words="50"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+    </section>
+
+    <footer class="post-meta">
+        <div class="author-info">
+        {{#if author.image}}<div class="author-thumb"><img class="main-avatar" src="{{author.image}}" alt="Author image" nopin="nopin" /></div>{{/if}}
+            <div class="author-and-date {{#if author.image}}with-author-img{{/if}}">
+            <div class="author-name">{{author}}</div>
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            </div>
+        </div>
+        {{#if tags}}<div class="post-tags">{{tags}}</div>{{/if}}
+    </footer>
+
+</article>
+{{/foreach}}

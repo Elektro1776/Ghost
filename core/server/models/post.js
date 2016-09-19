@@ -393,6 +393,10 @@ Post = ghostBookshelf.Model.extend({
         return this.morphMany('AppField', 'relatable');
     },
 
+    defaultColumnsToFetch: function defaultColumnsToFetch() {
+        return ['id', 'published_at', 'slug', 'author_id'];
+    },
+
     toJSON: function toJSON(options) {
         options = options || {};
 
@@ -427,6 +431,16 @@ Post = ghostBookshelf.Model.extend({
             updated_at: 'DESC',
             id: 'DESC'
         };
+    },
+
+    orderDefaultRaw: function () {
+        return '' +
+            'CASE WHEN posts.status = \'scheduled\' THEN 1 ' +
+            'WHEN posts.status = \'draft\' THEN 2 ' +
+            'ELSE 3 END ASC,' +
+            'posts.published_at DESC,' +
+            'posts.updated_at DESC,' +
+            'posts.id DESC';
     },
 
     /**
@@ -551,7 +565,7 @@ Post = ghostBookshelf.Model.extend({
 
         return ghostBookshelf.Model.findOne.call(this, data, options).then(function then(post) {
             if ((withNext || withPrev) && post && !post.page) {
-                var publishedAt = post.get('published_at'),
+                var publishedAt = moment(post.get('published_at')).format('YYYY-MM-DD HH:mm:ss'),
                     prev,
                     next;
 
